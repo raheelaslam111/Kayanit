@@ -30,13 +30,13 @@
 		</field>
 	</record>
 
-	<record id="action_select_quotation_wizard" model="ir.actions.act_window">
-		<field name="name">Select Quotation Wizard</field>
-		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">select.quotation.wizard</field>
-		<field name="view_mode">form</field>
-		<field name="view_id" ref="form_select_quotation_wizard_view"/>
-		<field name="target">new</field>
-	</record>
+<!--	<record id="action_select_quotation_wizard" model="ir.actions.act_window">-->
+<!--		<field name="name">Select Quotation Wizard</field>-->
+<!--		<field name="type">ir.actions.act_window</field>-->
+<!--		<field name="res_model">select.quotation.wizard</field>-->
+<!--		<field name="view_mode">form</field>-->
+<!--		<field name="view_id" ref="form_select_quotation_wizard_view"/>-->
+<!--		<field name="target">new</field>-->
+<!--	</record>-->
 
 </odoo>

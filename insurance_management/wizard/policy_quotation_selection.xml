@@ -90,13 +90,13 @@
 		</field>
 	</record>
 
-	<record id="action_policy_selection_quotation_wizard" model="ir.actions.act_window">
-		<field name="name">Policy Quotation Selection Wizard</field>
-		<field name="type">ir.actions.act_window</field>
-		<field name="res_model">policy.selection.quotation</field>
-		<field name="view_mode">form</field>
-		<field name="view_id" ref="form_select_quotation_wizard_view"/>
-		<field name="target">new</field>
-	</record>
+<!--	<record id="action_policy_selection_quotation_wizard" model="ir.actions.act_window">-->
+<!--		<field name="name">Policy Quotation Selection Wizard</field>-->
+<!--		<field name="type">ir.actions.act_window</field>-->
+<!--		<field name="res_model">policy.selection.quotation</field>-->
+<!--		<field name="view_mode">form</field>-->
+<!--		<field name="view_id" ref="form_select_quotation_wizard_view"/>-->
+<!--		<field name="target">new</field>-->
+<!--	</record>-->
 
 </odoo>
