@@ -12,7 +12,7 @@ from odoo import api, fields, models, _,exceptions
 from odoo.exceptions import Warning, UserError
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools.misc import file_open, formatLang
-from hijri_converter import Hijri, Gregorian
+# from hijri_converter import Hijri, Gregorian
 from hijri_converter import convert
 import pandas as pd
 import logging
@@ -996,16 +996,17 @@ class client_basic_info(models.Model):
         for rec in self:
             # Convert a Hijri date to Gregorian
             # g = Hijri(1403, 2, 17).to_gregorian()
-            if rec.dob:
-                # Convert a Gregorian date to Hijri
-                # h = Gregorian(1982, 12, 2).to_hijri()
-                war_start = str(rec.dob)
-
-                war = datetime.strptime(war_start, '%Y-%m-%d')
-                hijridate = convert.Gregorian(war).to_hijri()
-                rec.dob_hijra = hijridate or False
-            else:
-                rec.dob_hijra = False
+            rec.dob_hijra = False
+            # if rec.dob:
+            #     # Convert a Gregorian date to Hijri
+            #     # h = Gregorian(1982, 12, 2).to_hijri()
+            #     war_start = str(rec.dob)
+            #
+            #     war = datetime.strptime(war_start, '%Y-%m-%d')
+            #     hijridate = convert.Gregorian(war).to_hijri()
+            #     rec.dob_hijra = hijridate or False
+            # else:
+            #     rec.dob_hijra = False
 
     @api.depends('dob')
     def get_member_age(self):
