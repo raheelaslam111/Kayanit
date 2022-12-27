@@ -15,7 +15,7 @@
                 <field name="activity_ids" string="Next Activity" widget="list_activity" optional="show"/>
                 <field name="country" invisible="1"/>
                 <field name="state_id"/>
-                <field name="client_ids"/>
+                <field name="client_ids" string="Lines"/>
                 <field name="state" string="Status"/>
             </tree>
         </field>
