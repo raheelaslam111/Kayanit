@@ -249,7 +249,7 @@
                     <field name="medical_visibility_check" invisible="1"/>
                     <field name="vehicle_visibility_check" invisible="1"/>
                     <notebook>
-                        <page string="Clients Detail" attrs="{'invisible': [('medical_visibility_check', '=', False)]}">
+                        <page string="Client List" attrs="{'invisible': [('medical_visibility_check', '=', False)]}">
                                 <field name="client_ids" attrs="{'readonly':[('state','=','validate')]}" widget="section_and_note_one2many" mode="tree,form" nolabel="1">
                                 <tree>
                                     <field name="name"/>

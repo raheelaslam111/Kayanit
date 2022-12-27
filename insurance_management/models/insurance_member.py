@@ -962,7 +962,7 @@ class client_basic_info(models.Model):
     member_type = fields.Many2one('member.type.standard',string='Member Type')
     class_no = fields.Many2one('class.name.standard',string='Class No')
     age_category = fields.Many2one('age.category.standard',string='Age Category')
-    risk_no = fields.Char(string='Risk No')
+    risk_no = fields.Many2one('risk.location',string='Risk(Location)')
     nationality = fields.Many2one('res.country', 'Nationality')
     staff_no = fields.Char(string='Staff No')
     # member_category = fields.Selection([('Manager','Manager'),('Staff','Staff'),('Skilled Worker','Skilled Worker'),('Supervisor','Supervisor')],string='Member Category')
@@ -1023,6 +1023,7 @@ class risk_location(models.Model):
     _name = 'risk.location'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'mail.render.mixin']
     _description = 'risk_location'
+    _rec_name = 'code'
 
     def _default_get_country(self):
         return self.env['res.country'].search([('is_saudiarabia','=',True)],limit=1)

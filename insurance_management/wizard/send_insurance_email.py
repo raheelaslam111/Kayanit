@@ -74,8 +74,8 @@ class InsuranceEmailWizard(models.TransientModel):
                     fields.datetime.now()) + '' + "-" + '' + 'Client Information Report'
                 values['cc'] = self.cc or False
                 # add_date = self.body + str(fields.date.today())
-                values['body_html'] = self.body
-                # values['body_html'] = values['body_html'],
+                if str(self.body) != '<p style="margin:0px;box-sizing:border-box;font-size:13px;"><br style="box-sizing:border-box;"></p>':
+                    values['body_html'] = self.body
                 values['author_id'] = self.env['res.users'].browse(
                     self.env['res.users']._context['uid']).partner_id.id
                 author = self.env['res.users'].browse(
