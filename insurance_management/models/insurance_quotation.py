@@ -444,7 +444,6 @@ class vehicle_quotation(models.Model):
                 'dob_owner': line.dob_owner,
                 'vehicle_quotation_id': self.id,
                 'vehicle_client_id': line.id,
-                # 'customer_branch_id': self.id,
                 'vat': 15,
             }
             vehicle_quotation_line = self.env['vehicle.quotation.line'].create(vals)
