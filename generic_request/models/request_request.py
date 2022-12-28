@@ -328,6 +328,8 @@ class RequestRequest(models.Model):
     marine_detail_id = fields.Many2one('insurance.marine',string='Related Marine Detail',domain="[('policy_id','=',policy_id)]")
     vehicle_covering_maintenance = fields.Selection(related='vehicle_detail_id.covering_maintenance',
                                                    string="Vehicle Covering Maintenance")
+    deductible = fields.Float(related='vehicle_detail_id.deductible',string='Deductible')
+    sum_insured = fields.Float(related='vehicle_detail_id.value',string="Sum Insured")
     chassis = fields.Char(related='vehicle_detail_id.chassis',string="Chassis No.")
     notification_date = fields.Date(string='Notification Date')
     scheduled_date = fields.Date(string='Scheduled Date')
@@ -345,7 +347,7 @@ class RequestRequest(models.Model):
     t_lost_deductible_cost = fields.Float(string='Deductible Cost')
     t_lost_depreciation_cost = fields.Float(string='Depreciation Cost')
     other_lost_cost_ids = fields.One2many('lost.other.cost', 'request_id', string='Other Loss Costs',ondelete='cascade')
-    t_lost_insurance_value = fields.Float(related='vehicle_detail_id.value',string='Sum Insured',help='Sum Insured')
+    t_lost_insurance_value = fields.Float(string='Sum Insured',help='Sum Insured')
     net_amount = fields.Float(string='Net Amount',help='Net Amount',compute='get_insured_value')
     insurance_type_id = fields.Many2one(related='policy_id.insurance_type_id', string='Insurance Type',store=True)
     insurance_sub_type_id = fields.Many2one(related='policy_id.insurance_sub_type_id', string='Insurance Sub Type',store=True)
@@ -358,6 +360,25 @@ class RequestRequest(models.Model):
                               ('closed', 'Closed'),
                               ('cancel', 'Cancel')], track_visibility='onchange',
                              default='draft')
+    t_lost_deductible_cost_color = fields.Char(compute='get_t_lost_deductible_cost')
+    t_lost_insurance_value_check = fields.Char(compute='get_t_lost_insurance_value_check')
+
+    @api.depends('t_lost_deductible_cost')
+    def get_t_lost_deductible_cost(self):
+        for rec in self:
+            if rec.t_lost_deductible_cost != rec.deductible:
+                rec.t_lost_deductible_cost_color = 'True'
+            else:
+                rec.t_lost_deductible_cost_color = 'False'
+
+    @api.depends('t_lost_insurance_value')
+    def get_t_lost_insurance_value_check(self):
+        for rec in self:
+            if rec.t_lost_insurance_value != rec.sum_insured:
+                rec.t_lost_insurance_value_check = 'True'
+            else:
+                rec.t_lost_insurance_value_check = 'False'
+
 
     def cancel(self):
         self.state = 'cancel'

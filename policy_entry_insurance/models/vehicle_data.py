@@ -116,3 +116,11 @@ class City(models.Model):
     _name = 'insurance.city'
 
     name = fields.Char("Name")
+
+class vehicle_color_ins(models.Model):
+    _name = 'vehicle.color.ins'
+    _inherit = ['mail.thread', 'mail.activity.mixin', 'mail.render.mixin']
+    _description = 'vehicle_color_ins'
+
+
+    name = fields.Char(string='Vehicle Color')

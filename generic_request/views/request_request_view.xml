@@ -243,12 +243,14 @@
                                 <group>
                                     <field name="vehicle_detail_id"/>
                                     <field name="vehicle_covering_maintenance"/>
-                                    <field name="approved_claim_type"/>
+                                    <field name="deductible"/>
+                                    <field name="sum_insured"/>
                                 </group>
                                 <group>
                                     <field name="chassis"/>
                                     <field name="covering_maintenance"/>
                                     <field name="approved_claim_number"/>
+                                    <field name="approved_claim_type"/>
                                 </group>
                             </group>
                             <separator string="Total Loss" colspan="4" style="font-size:20px;" attrs="{'invisible': [('approved_claim_type', '!=', 'total_lost')]}"/>
@@ -260,10 +262,10 @@
                                                 <strong>Sum Insured</strong>
                                             </th>
                                             <th style="border: 2px solid black;width: 300px;">
-                                                <strong>Deductible Cost</strong>
+                                                <strong>Depreciation Cost</strong>
                                             </th>
                                             <th style="border: 2px solid black;width: 300px;">
-                                                <strong>Depreciation Cost</strong>
+                                                <strong>Deductible Cost</strong>
                                             </th>
                                             <th style="border: 2px solid black;width: 300px;">
                                                 <strong>Net Amount</strong>
@@ -273,13 +275,15 @@
                                     <tbody>
                                         <tr>
                                             <td style="border: 2px solid black;">
-                                                <field name="t_lost_insurance_value" no_label="1"/>
-                                            </td>
-                                            <td style="border: 2px solid black;">
-                                                <field no_label="1" name="t_lost_deductible_cost"/>
+                                                <field name="t_lost_insurance_value_check" invisible="1"/>
+                                                <field name="t_lost_insurance_value" no_label="1" decoration-danger="t_lost_insurance_value_check == 'True'" decoration-success="t_lost_insurance_value_check == 'False'"/>
                                             </td>
                                             <td style="border: 2px solid black;">
                                                 <field no_label="1" name="t_lost_depreciation_cost"/>
+                                            </td>
+                                            <td style="border: 2px solid black">
+                                                <field name="t_lost_deductible_cost_color" invisible="1"/>
+                                                <field no_label="1" name="t_lost_deductible_cost" decoration-danger="t_lost_deductible_cost_color == 'True'" decoration-success="t_lost_deductible_cost_color == 'False'"/>
                                             </td>
                                             <td style="border: 2px solid black;">
                                                 <field name="net_amount" no_label="1"/>

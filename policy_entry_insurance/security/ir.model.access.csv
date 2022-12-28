@@ -47,6 +47,8 @@ access_commission_scheme_line,access_commission_scheme_line,model_commission_sch
 
 access_sale_person_commission,access_sale_person_commission,model_sale_person_commission,,1,1,1,1
 
+access_vehicle_color_ins,vehicle.color.ins,model_vehicle_color_ins,,1,1,1,1
+
 
 
 

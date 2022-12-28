@@ -158,13 +158,3 @@ class client_vehicle_info(models.Model):
                                 "The Plate No. is not According to given Format Alphabet must be in capital letters!")
 
         return res
-
-
-
-class vehicle_color_ins(models.Model):
-    _name = 'vehicle.color.ins'
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'mail.render.mixin']
-    _description = 'vehicle_color_ins'
-
-
-    name = fields.Char(string='Vehicle Color')
