@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem name="Insurance Management"
+    <menuitem name="Requests"
               id="menu_insurance_management"
               web_icon="insurance_management,static/description/insurance.png"
               sequence="1"/>
@@ -47,7 +47,9 @@
               name="Vehicle"/>
     <menuitem id="ins_vehicle_mark" name="Vehicle Mark" parent="menu_vehicle_mark_main" sequence="1" action="fleet.fleet_vehicle_model_brand_action"/>
     <menuitem id="ins_vehicle_model" name="Vehicle Model" parent="menu_vehicle_mark_main" sequence="2" action="fleet.fleet_vehicle_model_action"/>
-            <menuitem id="invoice_menu_commission" parent="account.menu_finance_receivables" sequence="1" action="action_move_out_invoice_type_commission"/>
+    <menuitem id="ins_vehicle_color_menu" name="Vehicle Color" parent="menu_vehicle_mark_main" sequence="3" action="action_vehicle_color_ins"/>
+    <menuitem id="ins_vehicle_type_menu" name="Vehicle Type" parent="menu_vehicle_mark_main" sequence="4" action="action_vehicle_type_ins"/>
+    <menuitem id="invoice_menu_commission" parent="account.menu_finance_receivables" sequence="1" action="action_move_out_invoice_type_commission"/>
 
 
 

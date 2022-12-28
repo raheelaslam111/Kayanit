@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Requests menu structure -->
-    <menuitem name="Claim Requests System"
+    <menuitem name="Claims"
               id="menu_request_root"
               web_icon="generic_request,static/description/icon.jpeg"/>
 

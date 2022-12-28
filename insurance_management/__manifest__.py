@@ -35,6 +35,7 @@
         'views/vehicle_quotation.xml',
         'views/brocker_standards.xml',
         'views/member_category_and_relation.xml',
+        'views/vehicle_color_and_type.xml',
         'wizard/send_insurance_email.xml',
         'wizard/policy_quotation_selection.xml',
         'wizard/send_customer_email.xml',

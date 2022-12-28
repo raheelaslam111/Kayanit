@@ -14,15 +14,15 @@ class Vehicle(models.Model):
     vehicle_type_id = fields.Many2one('vehicle.type',"Vehicle Type")
     plate_no = fields.Char("Plate No. (En)")
     plate_no_ar = fields.Char(string='Plate No. (Ar)')
-    model_no =  fields.Selection([(str(num), str(num)) for num in range(1900, (datetime.now().year)+1 )],string="Model Year")
+    model_no = fields.Selection([(str(num), str(num)) for num in range(1900, (datetime.now().year)+1 )],string="Model Year")
     chassis = fields.Char("Chassis",required=1)
     capacity = fields.Integer("Capacity")
-    driver_insurance=  fields.Boolean("Driver Insurance")
+    driver_insurance = fields.Boolean("Driver Insurance")
     covering_maintenance = fields.Selection([('work_shop', 'Workshop'),('agency', 'Agency')], string="Covering Maintenance")
     value = fields.Float("Sum Insured")
     owener_name = fields.Char("Owner Name")
     owner_id = fields.Char("Owner ID No")
-    custom_id  = fields.Char("Custom ID")
+    custom_id = fields.Char("Custom ID")
     seq_no = fields.Char("Sequence No")
     user_id_no = fields.Char("User ID No")
     user_name = fields.Char("User Name")
@@ -37,7 +37,7 @@ class Vehicle(models.Model):
     neighbour_head = fields.Char("Neighbor Head")
     mobile_no = fields.Integer("Mobile No")
     istamara_expiry = fields.Date("Istemara Expiry")
-    vehicle_color = fields.Char("Vehicle Color")
+    vehicle_color = fields.Many2one('vehicle.color.ins',"Vehicle Color")
     vehicle_make_id = fields.Many2one('fleet.vehicle.model.brand', string='Vehicle Manufacturer')
     vehicle_model_id = fields.Many2one('fleet.vehicle.model', string='Vehicle Model',domain="[('brand_id', '=?', vehicle_make_id)]")
     gcc_cover = fields.Boolean("GCC Cover")
@@ -50,6 +50,12 @@ class Vehicle(models.Model):
     endorsment_am = fields.Float("Endorsement Amount")
     endorsment_type = fields.Selection([('add', 'Upgrade'), ('sub', 'Downgrade'), ('remove', 'Cancel')],
                                        string='Operation Type')
+    personal_accedant = fields.Boolean(string='Personal Accedant')
+    is_driver = fields.Boolean(string='Driver')
+    driver_plus_passenger = fields.Boolean(string='Driver + Passenger')
+    rate_percentage = fields.Float(string='Rate %')
+    deductible = fields.Float(string='Deductible')
+    minimum = fields.Float(string='Minimum')
 
     @api.onchange('vehicle_make_id')
     def set_model_wrt_vehicle_make_id(self):
@@ -99,6 +105,8 @@ class BrandName(models.Model):
     _name = 'vehicle.brand'
 
     name = fields.Char('Brand Name')
+
+
 class VehicleType(models.Model):
     _name = 'vehicle.type'
 

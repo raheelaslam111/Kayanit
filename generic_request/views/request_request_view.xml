@@ -215,7 +215,7 @@
                             <field name="client_id"/>
                         </group>
                         <group string="Policy">
-                            <field name="policy_id"/>
+                            <field name="policy_id" options="{'no_create': True, 'no_open': True}"/>
                             <field name="ins_type_select" invisible="1"/>
                             <field name="incident_type"/>
                         </group>
@@ -246,11 +246,12 @@
                                     <field name="approved_claim_type"/>
                                 </group>
                                 <group>
+                                    <field name="chassis"/>
                                     <field name="covering_maintenance"/>
                                     <field name="approved_claim_number"/>
                                 </group>
                             </group>
-                            <separator string="Total Lost" colspan="4" style="font-size:20px;" attrs="{'invisible': [('approved_claim_type', '!=', 'total_lost')]}"/>
+                            <separator string="Total Loss" colspan="4" style="font-size:20px;" attrs="{'invisible': [('approved_claim_type', '!=', 'total_lost')]}"/>
                                     <table width="100%" style="border: 2px solid black;" attrs="{'invisible': [('approved_claim_type', '!=', 'total_lost')]}"
                                        class="table table-bordered mt32">
                                     <thead>

@@ -449,6 +449,12 @@
                                         <field name="model_no" optional="hide"/>
                                         <field name="gcc_cover" optional="hide"/>
                                         <field name="natural_peril_cover" optional="hide"/>
+                                        <field name="rate_percentage" optional="1"/>
+                                        <field name="deductible" optional="1"/>
+                                        <field name="minimum" optional="1"/>
+                                        <field name="personal_accedant" optional="1"/>
+                                        <field name="is_driver" optional="1"/>
+                                        <field name="driver_plus_passenger" optional="1"/>
                                         <field name="dob_owner" optional="hide"/>
                                         <field name="nationality" optional="hide"/>
                                         <!--                                        <field name="premium" optional="hide"/>-->
@@ -497,6 +503,12 @@
                                                     <field name="vehicle_model_id" optional="hide"/>
                                                     <field name="gcc_cover" optional="hide"/>
                                                     <field name="natural_peril_cover" optional="hide"/>
+                                                    <field name="rate_percentage" optional="1"/>
+                                                    <field name="deductible" optional="1"/>
+                                                    <field name="minimum" optional="1"/>
+                                                    <field name="personal_accedant" optional="1"/>
+                                                    <field name="is_driver" optional="1"/>
+                                                    <field name="driver_plus_passenger" optional="1"/>
                                                     <field name="dob_owner" optional="hide"/>
                                                     <field name="nationality" optional="hide"/>
                                                     <!--                                                    <field name="premium" optional="hide"/>-->

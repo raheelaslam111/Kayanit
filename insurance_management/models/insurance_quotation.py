@@ -438,9 +438,15 @@ class vehicle_quotation(models.Model):
                 'neighborhead': line.neighborhead,
                 'mobile_no': line.mobile_no,
                 'exp_date_istemara_hijry': line.exp_date_istemara_hijry,
-                'vehicle_color': line.vehicle_color,
+                'vehicle_color': line.vehicle_color.id,
                 'gcc_covering': line.gcc_covering,
                 'natural_peril_cover': line.natural_peril_cover,
+                'personal_accedant': line.personal_accedant,
+                'is_driver': line.is_driver,
+                'driver_plus_passenger': line.driver_plus_passenger,
+                'rate_percentage': line.rate_percentage,
+                'deductible': line.deductible,
+                'minimum': line.minimum,
                 'dob_owner': line.dob_owner,
                 'vehicle_quotation_id': self.id,
                 'vehicle_client_id': line.id,
@@ -609,9 +615,9 @@ class vehicle_quotation_line(models.Model):
     plate_no = fields.Char(string='Plate No. (En)')
     plate_no_ar = fields.Char(string='Plate No. (Ar)')
     model = fields.Selection([(str(num), str(num)) for num in range(1900, (datetime.now().year)+1 )],string="Vehicle Year")
-    chasis_no = fields.Char(string='Chasis')
+    chasis_no = fields.Char(string='Chasis No')
     capacity = fields.Integer(string='Capacity')
-    driver_insurance = fields.Boolean(string='Driver Insurance')
+    driver_insurance = fields.Boolean(string='Driver Less then 21')
     covering_maintenance = fields.Selection([('work_shop', 'Workshop'),('agency', 'Agency')], string="Covering Maintenance")
     # value = fields.Char(string='Value')
     owner_name = fields.Char(string='Owner Name')
@@ -632,7 +638,7 @@ class vehicle_quotation_line(models.Model):
     mobile_no = fields.Char(string='Mobile No')
     exp_date_istemara_hijry = fields.Date(string='Expiry Date of Istemara (Hijry)')
     exp_date_en = fields.Date(string='Expiry Date EN.')
-    vehicle_color = fields.Char(string='Vehicle Color')
+    vehicle_color = fields.Many2one('vehicle.color.ins',string='Vehicle Color')
     gcc_covering = fields.Boolean(string='GCC Covering')
     natural_peril_cover = fields.Boolean(string='Natural Peril Cover')
     dob_owner = fields.Date(string='DOB of Owner (AD)')
@@ -641,6 +647,12 @@ class vehicle_quotation_line(models.Model):
     vehicle_model_id = fields.Many2one('fleet.vehicle.model', string='Vehicle Model' ,domain="[('brand_id', '=?', vehicle_make_id)]")
     sum_insured = fields.Float("Sum Insured")
     create_policy = fields.Boolean('Create Policy',default=True)
+    personal_accedant = fields.Boolean(string='Personal Accedant')
+    is_driver = fields.Boolean(string='Driver')
+    driver_plus_passenger = fields.Boolean(string='Driver + Passenger')
+    rate_percentage = fields.Float(string='Rate %')
+    deductible = fields.Float(string='Deductible')
+    minimum = fields.Float(string='Minimum')
 
     def add_policy(self):
 
@@ -672,7 +684,7 @@ class vehicle_quotation_line(models.Model):
                     'neighbour_head': self.neighborhead,
                     'mobile_no': self.mobile_no,
                     'istamara_expiry': self.exp_date_istemara_hijry,
-                    'vehicle_color': self.vehicle_color,
+                    'vehicle_color': self.vehicle_color.id,
                     'gcc_cover': self.gcc_covering,
                     'natural_peril_cover': self.natural_peril_cover,
                     'dob_owner': self.dob_owner,

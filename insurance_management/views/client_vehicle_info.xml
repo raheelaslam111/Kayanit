@@ -16,6 +16,7 @@
                 <field name="driver_insurance"/>
                 <field name="covering_maintenance"/>
                 <field name="value"/>
+                <field name="premium" optional="1"/>
                 <field name="owner_name"/>
                 <field name="owner_id_no" optional="1"/>
                 <field name="custom_id" optional="1"/>
@@ -37,6 +38,12 @@
                 <field name="vehicle_color" optional="1"/>
                 <field name="gcc_covering" optional="1"/>
                 <field name="natural_peril_cover" optional="1"/>
+                <field name="rate_percentage" optional="1"/>
+                <field name="deductible" optional="1"/>
+                <field name="minimum" optional="1"/>
+                <field name="personal_accedant" optional="1"/>
+                <field name="is_driver" optional="1"/>
+                <field name="driver_plus_passenger" optional="1"/>
                 <field name="dob_owner" optional="1"/>
                 <field name="vehicle_make_id" optional="1"/>
                 <field name="vehicle_model_id" optional="1"/>
@@ -79,8 +86,15 @@
                             <field name="driver_insurance"/>
                             <field name="covering_maintenance"/>
                             <field name="value"/>
+                             <field name="premium" optional="1"/>
                              <field name="gcc_covering"/>
                             <field name="natural_peril_cover"/>
+                             <field name="personal_accedant"/>
+                            <field name="is_driver"/>
+                            <field name="driver_plus_passenger"/>
+                             <field name="rate_percentage"/>
+                            <field name="deductible"/>
+                            <field name="minimum"/>
                         </group>
                     </group>
                     <group>
@@ -158,6 +172,7 @@
                 <field name="driver_insurance" optional="1"/>
                 <field name="covering_maintenance"/>
                 <field name="value"/>
+                <field name="premium" optional="1"/>
                 <field name="owner_name" optional="1"/>
                 <field name="owner_id_no" optional="1"/>
                 <field name="custom_id" optional="1"/>
@@ -179,6 +194,12 @@
                 <field name="vehicle_color" optional="1"/>
                 <field name="gcc_covering" optional="1"/>
                 <field name="natural_peril_cover" optional="1"/>
+                <field name="rate_percentage" optional="1"/>
+                <field name="deductible" optional="1"/>
+                <field name="minimum" optional="1"/>
+                <field name="personal_accedant" optional="1"/>
+                <field name="is_driver" optional="1"/>
+                <field name="driver_plus_passenger" optional="1"/>
                 <field name="vehicle_make_id" optional="1"/>
                 <field name="vehicle_model_id" optional="1"/>
                 <field name="model" optional="1"/>
@@ -221,8 +242,15 @@
                             <field name="driver_insurance"/>
                             <field name="covering_maintenance"/>
                             <field name="value"/>
+                             <field name="premium" optional="1"/>
                              <field name="gcc_covering"/>
                             <field name="natural_peril_cover"/>
+                             <field name="personal_accedant"/>
+                            <field name="is_driver"/>
+                            <field name="driver_plus_passenger"/>
+                             <field name="rate_percentage"/>
+                            <field name="deductible"/>
+                            <field name="minimum"/>
                         </group>
                     </group>
                     <group>

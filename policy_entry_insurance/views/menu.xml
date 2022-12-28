@@ -1,6 +1,6 @@
 <odoo>
 
-    <menuitem id="policy_entry_menu" name="Policy Entry"
+    <menuitem id="policy_entry_menu" name="Underwriting"
     />
 
     <menuitem id="policy_entry_data" name="Policy Data"

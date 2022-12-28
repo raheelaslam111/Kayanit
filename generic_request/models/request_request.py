@@ -314,12 +314,12 @@ class RequestRequest(models.Model):
     client_id = fields.Many2one('res.partner',string='Customer',required=True)
     insurance_company_id = fields.Many2one(related='policy_id.insurance_company_id', string='Insurance Company',store=True)
     other_attachment_ids = fields.One2many('request.other.attachments','request_id',string='Other Attachments',ondelete='cascade')
-    policy_id = fields.Many2one('insurance.policy',string='Policy',domain="[('partner_id','=',client_id)]")
+    policy_id = fields.Many2one('insurance.policy',string='Internal Policy Reference',domain="[('partner_id','=',client_id)]")
     ins_type_select = fields.Selection(related='policy_id.insurance_type_id.ins_type_select',
         string='Technical Type')
     policy_partner_id = fields.Many2one(related='policy_id.partner_id', string='Customer')
     policy_no = fields.Char(related='policy_id.policy_no',string="Policy ID")
-    branch_id = fields.Many2one(related='policy_id.branch_id',string= "Branch Name")
+    branch_id = fields.Many2one(related='policy_id.fed_state_id',string= "Branch Name")
     start_date = fields.Date(related='policy_id.start_date',string='Start Date')
     expiry_date = fields.Date(related='policy_id.expiry_date',string='Expiry Date')
     issuance_date = fields.Date(related='policy_id.issuance_date',string='issuance Date')
@@ -328,11 +328,12 @@ class RequestRequest(models.Model):
     marine_detail_id = fields.Many2one('insurance.marine',string='Related Marine Detail',domain="[('policy_id','=',policy_id)]")
     vehicle_covering_maintenance = fields.Selection(related='vehicle_detail_id.covering_maintenance',
                                                    string="Vehicle Covering Maintenance")
+    chassis = fields.Char(related='vehicle_detail_id.chassis',string="Chassis No.")
     notification_date = fields.Date(string='Notification Date')
     scheduled_date = fields.Date(string='Scheduled Date')
     covering_maintenance = fields.Selection([('work_shop', 'Workshop'),('agency', 'Agency')], string="Covering Maintenance")
     approved_claim_number = fields.Char(string='Claim Number')
-    approved_claim_type = fields.Selection([('repair', 'Repair'),('total_lost', 'Total Lost')], string="Approved Claim For")
+    approved_claim_type = fields.Selection([('repair', 'Repair'),('total_lost', 'Total Loss')], string="Approved Claim For")
 
     repair_labour_cost = fields.Float(string='Labour Cost')
     repair_parts_cost = fields.Float(string='Parts Cost')
@@ -343,7 +344,7 @@ class RequestRequest(models.Model):
 
     t_lost_deductible_cost = fields.Float(string='Deductible Cost')
     t_lost_depreciation_cost = fields.Float(string='Depreciation Cost')
-    other_lost_cost_ids = fields.One2many('lost.other.cost', 'request_id', string='Other Lost Costs',ondelete='cascade')
+    other_lost_cost_ids = fields.One2many('lost.other.cost', 'request_id', string='Other Loss Costs',ondelete='cascade')
     t_lost_insurance_value = fields.Float(related='vehicle_detail_id.value',string='Sum Insured',help='Sum Insured')
     net_amount = fields.Float(string='Net Amount',help='Net Amount',compute='get_insured_value')
     insurance_type_id = fields.Many2one(related='policy_id.insurance_type_id', string='Insurance Type',store=True)
