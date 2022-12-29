@@ -63,6 +63,8 @@
         'views/request_category_view.xml',
         'views/request_type_view.xml',
         'views/request_kind.xml',
+        'views/cost_name.xml',
+        'views/request_stage.xml',
         'views/request_stage_route_view.xml',
         'views/request_stage_view.xml',
         'views/request_stage_type_view.xml',

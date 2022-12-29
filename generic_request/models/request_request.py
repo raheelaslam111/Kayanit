@@ -356,12 +356,13 @@ class RequestRequest(models.Model):
     total_document_number = fields.Integer(string='Total Documents', compute='get_total_documents')
     # ins_technical_type = fields.Char(string='Ins Type Technical',compute='get_ins_technical_type')
     state = fields.Selection([('draft', 'Draft'),
-                              ('sent_to_vendor', 'Sent To Vendor'),
+                              ('sent_to_vendor', 'In Progress'),
                               ('closed', 'Closed'),
                               ('cancel', 'Cancel')], track_visibility='onchange',
                              default='draft')
     t_lost_deductible_cost_color = fields.Char(compute='get_t_lost_deductible_cost')
     t_lost_insurance_value_check = fields.Char(compute='get_t_lost_insurance_value_check')
+    stage_list_id = fields.Many2one('request.stage.list',string='Stage')
 
     @api.depends('t_lost_deductible_cost')
     def get_t_lost_deductible_cost(self):

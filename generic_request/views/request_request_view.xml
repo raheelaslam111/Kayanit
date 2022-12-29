@@ -101,7 +101,10 @@
                                    widget="state_selection"
                                    class="request-kanban-state ml8"/>
                         </h2>
-                        <field name="tag_ids"
+                    </div>
+                    <group>
+                        <group>
+                            <field name="tag_ids"
                                options="{'color_field': 'color'}"
                                widget="many2many_tags"
                                placeholder="Tags..."
@@ -109,7 +112,11 @@
                                nolabel="1"
                                domain="[('model_id.model', '=', 'request.request')]"
                                context="{'default_model': 'request.request'}"/>
-                    </div>
+                        </group>
+                        <group>
+                            <field name="stage_list_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
+                        </group>
+                    </group>
                     <group name="request_head_info" class="request-head-info" invisible="1">
                         <group invisible="1" name="request_head_info_left" class="request-head-info-left">
                             <div colspan="2" name="header_category" class="request-head-info-item">
@@ -295,7 +302,7 @@
                                     <group string="Other Costs">
                                         <field name="other_lost_cost_ids" nolabel="1">
                                             <tree editable="bottom">
-                                                <field name="name"/>
+                                                <field name="name" options="{'no_create': True, 'no_create_edit': True}"/>
                                                 <field name="cost"/>
                                             </tree>
                                         </field>
@@ -345,7 +352,7 @@
                                     <group string="Other Cost">
                                         <field name="other_repair_cost_ids" nolabel="1">
                                             <tree editable="bottom">
-                                                <field name="name"/>
+                                                <field name="name" options="{'no_create': True, 'no_create_edit': True}"/>
                                                 <field name="cost"/>
                                             </tree>
                                         </field>
@@ -622,6 +629,7 @@
 <!--                <field name="stage_id"-->
 <!--                       options="{'field_bg_color': 'stage_bg_color', 'field_label_color': 'stage_label_color'}"-->
 <!--                       optional="show"/>-->
+                <field name="stage_list_id" options="{'no_create': True, 'no_create_edit':True, 'no_open': True}"/>
                 <field name="state"
                        options="{'field_bg_color': 'stage_bg_color', 'field_label_color': 'stage_label_color'}"
                        optional="show"/>
@@ -677,6 +685,7 @@
                 <field name="closed_by_id"/>
                 <field name="closed"/>
 <!--                <field name="stage_id"/>-->
+                <field name="stage_list_id"/>
                 <field name="state"/>
                 <field name="stage_bg_color"/>
                 <field name="stage_label_color"/>
@@ -820,6 +829,12 @@
                                                 <span t-if="record.deadline_state.raw_value == 'overdue'"
                                                     class="text-danger fa fa-clock-o mr4"/>
                                                 <field name="deadline_date"/>
+                                            </span>
+                                        </div>
+                                        <div t-if="record.stage_list_id.raw_value">
+                                            <span class="text-muted" title="Stage">
+                                                <span class="text-danger fa fa-square mr4"/>
+                                                <field name="stage_list_id"/>
                                             </span>
                                         </div>
                                     </div>
