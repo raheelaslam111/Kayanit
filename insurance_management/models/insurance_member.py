@@ -962,7 +962,7 @@ class client_basic_info(models.Model):
     member_type = fields.Many2one('member.type.standard',string='Member Type')
     class_no = fields.Many2one('class.name.standard',string='Class No')
     age_category = fields.Many2one('age.category.standard',string='Age Category')
-    risk_no = fields.Char(string='Risk(Location)')
+    risk_no = fields.Char('risk.no.name',string='Risk(Location)')
     nationality = fields.Many2one('res.country', 'Nationality')
     staff_no = fields.Char(string='Staff No')
     # member_category = fields.Selection([('Manager','Manager'),('Staff','Staff'),('Skilled Worker','Skilled Worker'),('Supervisor','Supervisor')],string='Member Category')
