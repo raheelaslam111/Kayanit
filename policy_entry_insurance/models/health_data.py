@@ -138,5 +138,4 @@ class risk_no_name(models.Model):
     _name = 'risk.no.name'
     _description = 'risk_no_name'
 
-
     name = fields.Char(string='Risk Name')
