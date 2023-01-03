@@ -133,3 +133,10 @@ class InsuranceAccomodation(models.Model):
     _description = "Insurance Accommodation"
 
     name=  fields.Char("Name")
+
+class risk_no_name(models.Model):
+    _name = 'risk.no.name'
+    _description = 'risk_no_name'
+
+
+    name = fields.Char(string='Risk Name')

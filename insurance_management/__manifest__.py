@@ -29,6 +29,7 @@
         'views/risk_and_occupation.xml',
         'views/insurance_company.xml',
         'views/benefits.xml',
+        'views/risk_no_name.xml',
         'views/insurance_employee_data_view.xml',
         'views/insurance_type.xml',
         'views/medical_quotation.xml',

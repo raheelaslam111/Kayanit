@@ -100,7 +100,7 @@
                         <group>
                             <field name="class_no" options="{'no_open': True, 'no_create': True}"/>
                             <field name="age_category" options="{'no_open': True, 'no_create': True}"/>
-                            <field name="risk_no"/>
+                            <field name="risk_no" options="{'no_open': True, 'no_create': True}"/>
                             <field name="note"/>
                         </group>
                     </group>
@@ -218,7 +218,7 @@
                         <group>
                             <field name="class_no" options="{'no_open': True, 'no_create': True}"/>
                             <field name="age_category" options="{'no_open': True, 'no_create': True}"/>
-                            <field name="risk_no"/>
+                            <field name="risk_no" options="{'no_open': True, 'no_create': True}"/>
                             <field name="note"/>
                         </group>
                     </group>
