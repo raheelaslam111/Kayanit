@@ -4,9 +4,14 @@ from odoo import models, fields, exceptions, api, _
 from odoo.exceptions import ValidationError, UserError
 from datetime import date
 from xlrd import open_workbook
+from bs4 import BeautifulSoup
 import xlrd
 import logging
 from datetime import datetime, timedelta
+from hijri_converter import Hijri, Gregorian
+import requests
+from odoo.http import request
+from odoo import http
 
 
 
@@ -45,7 +50,8 @@ class client_vehicle_info(models.Model):
     zip_code = fields.Char(string='Zip Code')
     neighborhead = fields.Char(string='Neighborhead')
     mobile_no = fields.Integer(string='Mobile No')
-    exp_date_istemara_hijry = fields.Date(string='Expiry Date of Istemara (Hijry)')
+    exp_date_istemara_hijry = fields.Char(string='Expiry Date of Istemara (Hijry)',compute='get_hijri_date')
+    exp_date_istemara_hijry_compute = fields.Date(string='Expiry Date of Istemara (Hijry) Compute')
     exp_date_en = fields.Date(string='Expiry Date Gr.')
     vehicle_color = fields.Many2one('vehicle.color.ins',string='Vehicle Color')
     gcc_covering = fields.Boolean(string='GCC Covering')
@@ -69,6 +75,23 @@ class client_vehicle_info(models.Model):
     premium = fields.Float(string='Premium',compute="get_vechcle_info_premium")
     deductible = fields.Float(string='Deductible')
     minimum = fields.Float(string='Minimum')
+    @api.depends('exp_date_istemara_hijry_compute')
+    def get_hijri_date(self):
+        for rec in self:
+            rec.exp_date_istemara_hijry = 'bbbb'
+            # Convert a Gregorian date to Hijri
+            h = Gregorian(1982, 12, 2).to_hijri()
+            # pdb.set_trace()
+            # source_code = """<span class="UserName"><a href="#">Martin Elias</a></span>"""
+            # soup = BeautifulSoup(source_code)
+            # path = request.httprequest.full_path
+            # r = requests.get(path)
+            # print(r)
+
+
+    def assign_hijri_date(self):
+        pdb.set_trace()
+        print('abcdddddddd')
 
     @api.depends('rate_percentage','value')
     def get_vechcle_info_premium(self):
