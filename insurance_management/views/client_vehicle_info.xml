@@ -123,8 +123,7 @@
                         <group>
                             <field name="capacity"/>
                             <field name="vehicle_color"/>
-                            <field name="exp_date_istemara_hijry" class="get_hijri"/>
-                            <field name="exp_date_istemara_hijry_compute"/>
+                            <field name="exp_date_istemara_hijry"/>
                             <field name="exp_date_en"/>
                             <field name="custom_id"/>
                             <field name="sequence_no"/>
@@ -281,7 +280,6 @@
                             <field name="capacity"/>
                             <field name="vehicle_color"/>
                             <field name="exp_date_istemara_hijry"/>
-                            <field name="exp_date_istemara_hijry_compute"/>
                             <field name="exp_date_en"/>
                             <field name="custom_id"/>
                             <field name="sequence_no"/>

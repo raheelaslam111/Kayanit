@@ -50,8 +50,7 @@ class client_vehicle_info(models.Model):
     zip_code = fields.Char(string='Zip Code')
     neighborhead = fields.Char(string='Neighborhead')
     mobile_no = fields.Integer(string='Mobile No')
-    exp_date_istemara_hijry = fields.Char(string='Expiry Date of Istemara (Hijry)',compute='get_hijri_date')
-    exp_date_istemara_hijry_compute = fields.Date(string='Expiry Date of Istemara (Hijry) Compute')
+    exp_date_istemara_hijry = fields.Date(string='Expiry Date of Istemara (Hijry)')
     exp_date_en = fields.Date(string='Expiry Date Gr.')
     vehicle_color = fields.Many2one('vehicle.color.ins',string='Vehicle Color')
     gcc_covering = fields.Boolean(string='GCC Covering')
@@ -75,7 +74,6 @@ class client_vehicle_info(models.Model):
     premium = fields.Float(string='Premium',compute="get_vechcle_info_premium")
     deductible = fields.Float(string='Deductible')
     minimum = fields.Float(string='Minimum')
-    @api.depends('exp_date_istemara_hijry_compute')
     def get_hijri_date(self):
         for rec in self:
             rec.exp_date_istemara_hijry = 'bbbb'
