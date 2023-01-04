@@ -683,7 +683,7 @@ class vehicle_quotation_line(models.Model):
                     'zip_code': self.zip_code,
                     'neighbour_head': self.neighborhead,
                     'mobile_no': self.mobile_no,
-                    'istamara_expiry': self.exp_date_istemara_hijry,
+                    'exp_date_istemara_hijry': self.exp_date_istemara_hijry,
                     'vehicle_color': self.vehicle_color.id,
                     'gcc_cover': self.gcc_covering,
                     'natural_peril_cover': self.natural_peril_cover,

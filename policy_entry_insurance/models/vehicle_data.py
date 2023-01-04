@@ -37,7 +37,7 @@ class Vehicle(models.Model):
     zip_code = fields.Char("Zip Code")
     neighbour_head = fields.Char("Neighbor Head")
     mobile_no = fields.Integer("Mobile No")
-    istamara_expiry = fields.Date("Istemara Expiry")
+    exp_date_istemara_hijry = fields.Date("Istemara Expiry")
     exp_date_en = fields.Date(string='Expiry Date Gr.')
     vehicle_color = fields.Many2one('vehicle.color.ins',"Vehicle Color")
     vehicle_make_id = fields.Many2one('fleet.vehicle.model.brand', string='Vehicle Manufacturer')

@@ -173,7 +173,7 @@ class PolicySelectionQuotation(models.TransientModel):
                         'zip_code': quo_line.zip_code,
                         'neighbour_head': quo_line.neighborhead,
                         # 'mobile_no': quo_line.mobile_no,
-                        'istamara_expiry': quo_line.exp_date_istemara_hijry,
+                        'exp_date_istemara_hijry': quo_line.exp_date_istemara_hijry,
                         'vehicle_color': quo_line.vehicle_color.id,
                         'gcc_cover': quo_line.gcc_covering,
                         'natural_peril_cover': quo_line.natural_peril_cover,

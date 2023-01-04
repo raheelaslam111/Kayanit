@@ -2026,7 +2026,7 @@ msgid "Issuing Fee"
 msgstr ""
 
 #. module: policy_entry_insurance
-#: model:ir.model.fields,field_description:policy_entry_insurance.field_insurance_vehicle__istamara_expiry
+#: model:ir.model.fields,field_description:policy_entry_insurance.field_insurance_vehicle__exp_date_istemara_hijry
 msgid "Istemara Expiry"
 msgstr ""
 

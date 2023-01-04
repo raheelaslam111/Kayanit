@@ -39,7 +39,7 @@
                                                     <field name="zip_code" optional="hide"/>
                                                     <field name="neighbour_head" optional="hide"/>
                                                     <field name="mobile_no" optional="hide"/>
-                                                    <field name="istamara_expiry" optional="hide"/>
+                                                    <field name="exp_date_istemara_hijry" optional="hide"/>
                                                     <field name="vehicle_color" optional="hide"/>
                                                     <field name="vehicle_make_id" optional="hide"/>
                                                     <field name="vehicle_model_id" optional="hide"/>
@@ -87,7 +87,7 @@
                                         <field name="zip_code" optional="hide"/>
                                         <field name="neighbour_head" optional="hide"/>
                                         <field name="mobile_no" optional="hide"/>
-                                        <field name="istamara_expiry" optional="hide"/>
+                                        <field name="exp_date_istemara_hijry" optional="hide"/>
                                         <field name="vehicle_color" optional="hide"/>
                                         <field name="vehicle_make_id" optional="hide"/>
                                         <field name="vehicle_model_id"/>
@@ -131,7 +131,7 @@
                 <field name="zip_code" optional="hide"/>
                 <field name="neighbour_head" optional="hide"/>
                 <field name="mobile_no" optional="hide"/>
-                <field name="istamara_expiry" optional="hide"/>
+                <field name="exp_date_istemara_hijry" optional="hide"/>
                 <field name="vehicle_color" optional="hide"/>
                 <field name="vehicle_make_id" optional="hide"/>
                 <field name="vehicle_model_id" optional="hide"/>

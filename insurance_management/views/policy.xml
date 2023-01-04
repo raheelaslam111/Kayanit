@@ -286,7 +286,7 @@
                         <group>
                             <field name="capacity"/>
                             <field name="vehicle_color"/>
-                            <field name="istamara_expiry"/>
+                            <field name="exp_date_istemara_hijry"/>
                             <field name="exp_date_en"/>
                             <field name="custom_id"/>
                             <field name="seq_no"/>
