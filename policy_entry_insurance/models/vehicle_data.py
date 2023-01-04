@@ -6,6 +6,7 @@ class Vehicle(models.Model):
     _name = 'insurance.vehicle'
     _rec_name = "plate_no"
 
+    document_no = fields.Char(string='Document No', store=True)
     class_id = fields.Many2one('insurance.business.class', 'Rel')
     policy_id = fields.Many2one('insurance.policy', 'Policy ID')
     currency_id = fields.Many2one('res.currency','Currency')
@@ -37,6 +38,7 @@ class Vehicle(models.Model):
     neighbour_head = fields.Char("Neighbor Head")
     mobile_no = fields.Integer("Mobile No")
     istamara_expiry = fields.Date("Istemara Expiry")
+    exp_date_en = fields.Date(string='Expiry Date Gr.')
     vehicle_color = fields.Many2one('vehicle.color.ins',"Vehicle Color")
     vehicle_make_id = fields.Many2one('fleet.vehicle.model.brand', string='Vehicle Manufacturer')
     vehicle_model_id = fields.Many2one('fleet.vehicle.model', string='Vehicle Model',domain="[('brand_id', '=?', vehicle_make_id)]")
@@ -56,6 +58,9 @@ class Vehicle(models.Model):
     rate_percentage = fields.Float(string='Rate %')
     deductible = fields.Float(string='Deductible')
     minimum = fields.Float(string='Minimum')
+    note = fields.Text(string='Note')
+    neighborhead = fields.Char(string='Neighborhead')
+    gcc_covering = fields.Boolean(string='GCC Covering')
 
     @api.onchange('vehicle_make_id')
     def set_model_wrt_vehicle_make_id(self):

@@ -66,6 +66,8 @@ class EmployeeData(models.Model):
     def _compute_partner(self):
         for rec in self:
             rec.partner_id = rec.policy_id.partner_id.id
+
+    document_no = fields.Char(string='Document No', store=True)
     member_id = fields.Char(string='Member ID')
     dependent_id = fields.Char(string='Dependent ID')
     name = fields.Char(string='Name', tracking=True)

@@ -172,13 +172,131 @@
 <!--               ?   <field name="branch_id" optional="hide"/>-->
                   <field name="member_category" optional="hide"/>
               </xpath>
-<!--               <xpath expr="//field[@name='employee_ids']/form/sheet/group/group/field[@name='age']" position="after">-->
-<!--                    <field name="member_type" optional="hide" options="{'no_open': True, 'no_create': True}"/>-->
-<!--                  <field name="class_no" optional="hide" options="{'no_open': True, 'no_create': True}"/>-->
-<!--                  <field name="occupation" optional="hide"/>-->
-<!--&lt;!&ndash;               ?   <field name="branch_id" optional="hide"/>&ndash;&gt;-->
-<!--                   <field name="member_category" />-->
-<!--              </xpath>-->
+               <xpath expr="//field[@name='employee_ids']/form" position="inside">
+                    <sheet>
+                        <field name="client_image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true}"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                            <label for="arabic_name"/>
+                            <h1><field name="arabic_name" class="oe_inline"/></h1>
+                        </div>
+                        <group string="Member Details">
+                            <group>
+                                <field name="document_no"/>
+                                <field name="member_id"/>
+                                <field name="dependent_id"/>
+                                <field name="nationality" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="occupation"/>
+                                <field name="marital_status"/>
+                            </group>
+                             <group>
+
+                                <field name="gender"/>
+                                <field name="dob"/>
+                                 <field name="dob_hijra"/>
+                                <field name="age"/>
+                                  <field name="mobile1"/>
+                                <field name="mobile2"/>
+                            </group>
+                        </group>
+                        <group string="Insurance Details">
+                            <group>
+                                <field name="staff_no"/>
+                                <field name="member_type" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="member_category" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="dep_no"/>
+                                <field name="sponser_id"/>
+                                <field name="vip"/>
+                                <field name="as_vip"/>
+                            </group>
+                            <group>
+                                <field name="class_no" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="age_category" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="risk_no" options="{'no_open': True, 'no_create': True}"/>
+                                <field name="note"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="branch_id" invisible="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+              </xpath>
+              <xpath expr="//field[@name='vehicle_detail']/form" position="inside">
+                  <sheet>
+                    <field name="vehicle_image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true}"/>
+                    <div class="oe_title">
+                        <label for="document_no" class="oe_edit_only"/>
+                        <h1>
+                            <field name="document_no" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Address Detail">
+                            <field name="building_no"/>
+                            <field name="additional_no"/>
+                            <field name="street"/>
+                            <field name="country_id" options="{'no_open': True, 'no_create': True}"/>
+                            <field name="city"/>
+                            <field name="unit_no"/>
+                            <field name="po_box"/>
+                            <field name="zip_code"/>
+                            <field name="neighborhead"/>
+                        </group>
+                         <group string="Coverage Details">
+                            <field name="driver_insurance"/>
+                            <field name="covering_maintenance"/>
+                            <field name="value"/>
+                             <field name="premium" optional="1"/>
+                             <field name="gcc_covering"/>
+                            <field name="natural_peril_cover"/>
+                             <field name="personal_accedant"/>
+                            <field name="is_driver"/>
+                            <field name="driver_plus_passenger"/>
+                             <field name="rate_percentage"/>
+                            <field name="deductible"/>
+                            <field name="minimum"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Owner Details">
+                            <field name="owener_name"/>
+                            <field name="owner_id"/>
+                            <field name="dob_owner"/>
+                            <field name="nationality"/>
+                        </group>
+                        <group string="Driver Details">
+                            <field name="user_id_no"/>
+                            <field name="user_name"/>
+                            <field name="mobile_no"/>
+                        </group>
+                    </group>
+                    <group string="Vehicle Details">
+                        <group>
+                            <field name="vehicle_make_id"/>
+                            <field name="vehicle_model_id"/>
+                            <field name="model_no"/>
+                            <field name="vehicle_type_id"/>
+                            <field name="plate_no" placeholder="1234 A-B-C"/>
+                            <field name="plate_no_ar"/>
+                            <field name="chassis"/>
+                        </group>
+                        <group>
+                            <field name="capacity"/>
+                            <field name="vehicle_color"/>
+                            <field name="istamara_expiry"/>
+                            <field name="exp_date_en"/>
+                            <field name="custom_id"/>
+                            <field name="seq_no"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+              </xpath>
 <!--              <xpath expr="//field[@name='employee_ids']/tree/field[@name='as_vip']" position="after">-->
 <!--                  -->
 <!--              </xpath>-->
