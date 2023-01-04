@@ -76,7 +76,7 @@ class EmployeeData(models.Model):
     arabic_name = fields.Char(string='Arabic Name', tracking=True)
     gender = fields.Selection([('Male', 'Male'), ('Female', 'Female')], string='Gender')
     dob = fields.Date(string='Birth Date')
-    dob_hijra = fields.Char(string='Birth Date(Hijra)')
+    dob_hijra = fields.Date(string='Birth Date(Hijra)')
     age = fields.Float(string='Age',compute='get_member_age')
     # member_type = fields.Char(string='Member Type')
     # class_no = fields.Char( string='Class No')

@@ -558,10 +558,8 @@ class client_branch(models.Model):
                         if occupation:
                             vals.update({'occupation': occupation.id})
                         if dob != '':
-                            print(dob,'dob')
                             vals.update({'dob': dob})
                         if dob_hijra != '':
-                            print(dob_hijra, 'dob_hijra')
                             vals.update({'dob_hijra': dob_hijra})
                         asn_line = self.env['client.basic.info'].create(vals)
         elif self.insurance_type_id.ins_type_select == 'is_vehicle':
