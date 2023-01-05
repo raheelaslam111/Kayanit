@@ -40,15 +40,31 @@
                     </div>
 
                     <div class="row">
+                        <t t-if="doc.invoice_type=='endors'">
+                        <div class="col-4"><Strong>Endorsement Ref</Strong></div>
+                        <div class="col-4 text-center"><span t-field="doc.endorsment_ref"></span></div>
+                        <div class="col-4 text-right"><Strong>المرجع المصادقة</Strong></div>
+                        </t>
+
+                        <t t-if="doc.invoice_type=='policy'">
                         <div class="col-4"><Strong>Policy No</Strong></div>
                         <div class="col-4 text-center"><span t-field="doc.policy_no"></span></div>
                         <div class="col-4 text-right"><Strong>لا توجد سياسة</Strong></div>
+                        </t>
                     </div>
 
                     <div class="row">
                         <div class="col-4"><Strong>Insurance Co Ref</Strong></div>
                         <div class="col-4 text-center"><span t-field="doc.insurance_co_ref"></span></div>
                         <div class="col-4 text-right"><Strong>مرجع شركة التأمين</Strong></div>
+                    </div>
+
+                    <div class="row">
+                        <t t-if="doc.invoice_type=='commission_inv'">
+                        <div class="col-4"><Strong>Policy Customer</Strong></div>
+                        <div class="col-4 text-center"><span t-field="doc.policy_id.insurance_company_id.ins_company_partner_id.name"></span></div>
+                        <div class="col-4 text-right"><Strong>عميل السياسة</Strong></div>
+                        </t>
                     </div>
                 </div>
                 <div class="col-3" >
