@@ -14,7 +14,7 @@
                             <field name="swift_code"/>
                             <field name="employee" domain="[('bank_id','=',False)]"/>
                             <field name="title"/>
-                            <field name="x_employee_number"/>
+<!--                            <field name="x_employee_number"/>-->
 
                         </group>
 
