@@ -12,7 +12,7 @@
  'category': 'HR',
  'version': '14.0.1.10',
  'images': ['static/description/Banner.png'],
- 'depends': ['base', 'mail', 'hr_contract', 'hr_payroll'],
+ 'depends': ['base', 'mail', 'hr_contract', 'hr_payroll','hr_work_entry_contract_enterprise'],
  'data': [
     'data/data.xml',
     'data/contract_deduction_seq.xml',
