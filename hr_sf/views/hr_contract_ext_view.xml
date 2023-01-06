@@ -68,5 +68,5 @@
 
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="hr_contract" name="Hr Contract" parent="hr_contract.hr_menu_contract" action="hr_contract.action_hr_contract" sequence="1"/>
+    <menuitem id="hr_contract" name="Hr Contract" parent="hr_work_entry_contract_enterprise.hr_menu_contract" action="hr_contract.action_hr_contract" sequence="1"/>
 </odoo>
