@@ -34,10 +34,12 @@
                     </group>
                 </page>
             </xpath>
-            <xpath expr="//field[@name='first_contract_date']" position="after">
-                <field name="contract_end_at"/>
-            </xpath>
+<!--            <xpath expr="//field[@name='first_contract_date']" position="after">-->
+<!--                <field name="contract_end_at"/>-->
+<!--            </xpath>-->
             <xpath expr="//field[@name='structure_type_id']" position="after">
+                                <field name="contract_end_at"/>
+
                 <field name="religion"/>
                 <field name="gender"/>
                 <field name="level"/>
