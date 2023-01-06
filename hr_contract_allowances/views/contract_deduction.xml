@@ -127,6 +127,6 @@
     <menuitem name="Contract Deductions"
               id="menu_base_hr_contract_deduction"
               action="contract_deduction_action"
-              parent="hr_contract.hr_menu_contract"
+              parent="hr_work_entry_contract_enterprise.hr_menu_contract"
               sequence="6"/>
 </odoo>
