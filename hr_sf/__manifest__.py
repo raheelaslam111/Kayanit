@@ -13,7 +13,7 @@
     'website': "http://www.kyan_it.com",
     'version': '14.0.1.11',
     'category': 'hr',
-    'depends': ['base', 'hr','account','hr_contract', 'notify_inbox', 'founder_project','hr_employee_updation','hr_holidays'],
+    'depends': ['base', 'hr','account','hr_contract', 'notify_inbox','hr_employee_updation','hr_holidays'],
     'data': [
         'security/user_group.xml',
         'security/ir.model.access.csv',
