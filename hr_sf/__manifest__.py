@@ -9,7 +9,7 @@
         This modules contains all features such as iqama, nationality etc features
     """,
 
-    'author': "SolutionFounder",
+    'author': "kyan it",
     'website': "http://www.kyan_it.com",
     'version': '14.0.1.11',
     'category': 'hr',
