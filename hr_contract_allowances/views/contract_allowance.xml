@@ -116,6 +116,6 @@
     <menuitem name="Contract Allowance"
               id="menu_base_hr_contract_allowance"
               action="contract_allowance_action"
-              parent="hr_contract.hr_menu_contract"
+              parent="hr_work_entry_contract_enterprise.hr_menu_contract"
               sequence="7"/>
 </odoo>
