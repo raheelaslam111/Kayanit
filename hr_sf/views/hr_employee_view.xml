@@ -141,9 +141,9 @@
                 <xpath expr="//field[@name='job_title']" position="after">
                         <field name="job_title_ar" placeholder="Job position in arabic"/>
                 </xpath>
-                <xpath expr="//field[@name='work_location']" position="after">
-                    <field name="work_location_ar"/>
-                </xpath>
+<!--                <xpath expr="//field[@name='work_location']" position="after">-->
+<!--                    <field name="work_location_ar"/>-->
+<!--                </xpath>-->
 
                 <xpath expr="//notebook/page[@name='personal_information']/group/group[6]" position="attributes">
                     <attribute name="invisible">0</attribute>
