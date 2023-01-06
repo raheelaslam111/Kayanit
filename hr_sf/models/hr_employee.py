@@ -104,7 +104,7 @@ class InheritHrEmployee(models.Model):
     grading = fields.Many2one('hr.grading',required=0)
     employee_number = fields.Char("Employee Number")
     old_employee_number = fields.Char("Old Employee Number")
-    project_ids = fields.Many2many('founder.project',string="Project")
+    project_ids = fields.Char(string="Project")
 
     saudi_boolean = fields.Boolean(compute='_compute_check_saudi',store=True,copy=False )
     age = fields.Float("Age",compute='_compute_age',copy=False,store=True)
