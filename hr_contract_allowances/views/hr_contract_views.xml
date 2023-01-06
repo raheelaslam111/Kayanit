@@ -32,7 +32,7 @@
                             </tree>
                         </field>
                     </xpath>
-                    <xpath expr="//group[@name='salary_and_advantages']" position="inside">
+                    <xpath expr="//group[@name='salary_info']" position="inside">
                         <field name="basic_salary" required="1"/>
                         <field name="net_allowance" readonly="1" invisible="1"/>
                         <field name="basic_allowance" readonly="1"/>
