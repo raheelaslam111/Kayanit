@@ -118,7 +118,7 @@
 
                 </xpath>
 
-                <xpath expr="//notebook/page[@name='personal_information']/group/group[@name='work_permit']" position="attributes">
+                <xpath expr="//notebook/page[@name='personal_information']/group/group[@name='has_work_permit']" position="attributes">
                     <attribute name="invisible">0</attribute>
                 </xpath>
                 <!--                <xpath expr="//notebook/page[@name='personal_information']/group/group[5]" position="replace">-->
