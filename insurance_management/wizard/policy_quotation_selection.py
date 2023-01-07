@@ -47,7 +47,7 @@ class PolicySelectionQuotation(models.TransientModel):
     medical_quotation_lines = fields.Many2many('quotation.line', string='Clients')
 
     vehicle_quotation_id = fields.Many2one('vehicle.quotation',string='Quotation')
-    vehicle_quotation_lines = fields.Many2many('vehicle.quotation.line',string='Clients')
+    vehicle_quotation_lines = fields.Many2many('vehicle.quotation.line',string='Clients',domain="[('vehicle_quotation_id','=',vehicle_quotation_id)]")
 
 
 
@@ -106,7 +106,7 @@ class PolicySelectionQuotation(models.TransientModel):
                         'member_type': client.member_type.id,
                         'class_no': client.class_no.id,
                         'age_category': client.age_category.id,
-                        'risk_no': client.risk_no.risk,
+                        'risk_no': client.risk_no,
                         'nationality': client.nationality.id,
                         'staff_no': client.staff_no,
                         'member_category': client.member_category.id,
