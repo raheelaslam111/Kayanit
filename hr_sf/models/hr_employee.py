@@ -81,8 +81,8 @@ class InheritHrEmployee(models.Model):
     sponsor_number = fields.Integer(related='sponsor_id.sponsor_id')
     sponsor_phone = fields.Integer(related='sponsor_id.Phone')
     sponsor_email = fields.Char(related='sponsor_id.email')
-    employee_type = fields.Selection(
-        [('internal', 'Internal'), ('outsource', 'Outsource'), ('contractual', 'Contractual')])
+    # employee_type = fields.Selection(
+    #     [('internal', 'Internal'), ('outsource', 'Outsource'), ('contractual', 'Contractual')])
     project_id = fields.Char( string="Project")
     no_of_dependent = fields.Integer(compute="compute_no_of_dependent")
     blood_group = fields.Selection([

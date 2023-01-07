@@ -97,7 +97,7 @@
                 </xpath>
                 <xpath expr="//field[@name='work_phone']" position="after">
                     <field name="ext_no"/>
-                    <field name="employee_type"/>
+<!--                    <field name="employee_type"/>-->
                     <field name="employee_number"/>
                     <field name="old_employee_number"/>
                     <field name="project_id" attrs="{'invisible': [('employee_type' ,'not in', ['outsource','contractual'])]}"/>
