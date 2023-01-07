@@ -44,7 +44,7 @@ class PolicySelectionQuotation(models.TransientModel):
                                               compute='get_insurance_pages_visibility')
 
     medical_quotation_id = fields.Many2one('insurance.quotation',string='Quotation')
-    medical_quotation_lines = fields.Many2many('quotation.line', string='Clients')
+    medical_quotation_lines = fields.Many2many('quotation.line', string='Clients',domain="[('insurance_quotation_id','=',medical_quotation_id)]")
 
     vehicle_quotation_id = fields.Many2one('vehicle.quotation',string='Quotation')
     vehicle_quotation_lines = fields.Many2many('vehicle.quotation.line',string='Clients',domain="[('vehicle_quotation_id','=',vehicle_quotation_id)]")
