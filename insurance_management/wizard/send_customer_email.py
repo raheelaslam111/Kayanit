@@ -349,7 +349,7 @@ class CustomerEmailWizard(models.TransientModel):
                     worksheet.write(rows, 15, line.building_no or '')
                     worksheet.write(rows, 16, line.additional_no or '')
                     worksheet.write(rows, 17, line.street or '')
-                    worksheet.write(rows, 18, line.city or '')
+                    worksheet.write(rows, 18, line.city.name or '')
                     worksheet.write(rows, 19, line.unit_no or '')
                     worksheet.write(rows, 20, line.po_box or '')
                     worksheet.write(rows, 21, line.zip_code or '')
