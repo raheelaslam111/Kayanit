@@ -818,7 +818,7 @@ class client_branch(models.Model):
 
             for line in self.client_vehicle_ids:
                 worksheet.write(rows, 0, line.id or '')
-                worksheet.write(rows, 1, line.vehicle_type or '')
+                worksheet.write(rows, 1, line.vehicle_type.name or '')
                 worksheet.write(rows, 2, line.plate_no or '')
                 worksheet.write(rows, 3, line.model or '')
                 worksheet.write(rows, 4, line.chasis_no or '')
