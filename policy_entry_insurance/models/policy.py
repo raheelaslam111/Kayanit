@@ -281,10 +281,10 @@ class Policy(models.Model):
     def action_post(self):
         self.state='posted'
 
-    @api.onchange('sum_insured','basic_prem')
+    @@api.onchange('sum_insured','basic_prem')
     def _onchange_sum_insured(self):
         if self.sum_insured>0 and self.basic_prem:
-         self.premium_percent_am=self.sum_insured/self.basic_prem
+         self.premium_percent_am=(self.basic_prem/self.basic_prem)*100
         else:
             self.premium_percent_am=0.0
 
