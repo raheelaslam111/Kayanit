@@ -723,7 +723,7 @@ class client_branch(models.Model):
                 worksheet.write(rows, 7, company_member_type_standard or '')
                 worksheet.write(rows, 8, line.gender or '')
                 worksheet.write(rows, 9, company_class_standard or '')
-                worksheet.write(rows, 10, str(line.risk_no) or '')
+                worksheet.write(rows, 10, str(line.risk_no.risk) or '')
                 worksheet.write(rows, 11, line.nationality.name or '')
                 worksheet.write(rows, 12, line.staff_no or '')
                 worksheet.write(rows, 13, line.member_category.name or '')
@@ -960,7 +960,7 @@ class client_basic_info(models.Model):
     member_type = fields.Many2one('member.type.standard',string='Member Type')
     class_no = fields.Many2one('class.name.standard',string='Class No')
     age_category = fields.Many2one('age.category.standard',string='Age Category')
-    risk_no = fields.Many2one('risk.no.name',string='Risk(Location)')
+    risk_no = fields.Many2one('risk.location',string='Risk(Location)')
     nationality = fields.Many2one('res.country', 'Nationality')
     staff_no = fields.Char(string='Staff No')
     # member_category = fields.Selection([('Manager','Manager'),('Staff','Staff'),('Skilled Worker','Skilled Worker'),('Supervisor','Supervisor')],string='Member Category')
@@ -1021,7 +1021,7 @@ class risk_location(models.Model):
     _name = 'risk.location'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'mail.render.mixin']
     _description = 'risk_location'
-    _rec_name = 'code'
+    _rec_name = 'risk'
 
     def _default_get_country(self):
         return self.env['res.country'].search([('is_saudiarabia','=',True)],limit=1)

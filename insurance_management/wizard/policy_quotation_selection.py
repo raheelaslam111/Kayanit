@@ -106,7 +106,7 @@ class PolicySelectionQuotation(models.TransientModel):
                         'member_type': client.member_type.id,
                         'class_no': client.class_no.id,
                         'age_category': client.age_category.id,
-                        'risk_no': client.risk_no,
+                        'risk_no': client.risk_no.risk,
                         'nationality': client.nationality.id,
                         'staff_no': client.staff_no,
                         'member_category': client.member_category.id,

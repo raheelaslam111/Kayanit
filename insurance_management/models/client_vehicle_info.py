@@ -88,7 +88,6 @@ class client_vehicle_info(models.Model):
 
 
     def assign_hijri_date(self):
-        pdb.set_trace()
         print('abcdddddddd')
 
     @api.depends('rate_percentage','value')

@@ -36,7 +36,7 @@
 
     <menuitem id="ins_member_category_menu" name="Medical Member Category" parent="ins_configuration" sequence="8" action="action_member_category"/>
     <menuitem id="ins_member_relation_menu" name="Medical Member Relation" parent="ins_configuration" sequence="9" action="action_member_relation"/>
-    <menuitem id="ins_risk_no_name_menu" name="Risk Name" parent="ins_configuration" sequence="9" action="action_risk_no_name"/>
+<!--    <menuitem id="ins_risk_no_name_menu" name="Risk Name" parent="ins_configuration" sequence="9" action="action_risk_no_name"/>-->
 
     <menuitem id="menu_broker_standards" parent="ins_configuration" sequence="10"
               name="Medical Standards"/>
