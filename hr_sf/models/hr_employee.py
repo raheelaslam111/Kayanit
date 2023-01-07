@@ -154,16 +154,16 @@ class InheritHrEmployee(models.Model):
                 self.totalyears = str(difference_in_years) + ' years'
 
     # Constraints and onchanges
-    @api.onchange('employee_type')
-    def onchange_employee_type(self):
-        """generate sequence on base of employee type"""
-        if self.employee_type:
-            if self.employee_type == 'internal':
-                self.employee_number = self.env['ir.sequence'].next_by_code('employee.internal')
-            if self.employee_type == 'outsource':
-                self.employee_number = self.env['ir.sequence'].next_by_code('employee.outsource')
-            if self.employee_type == 'contractual':
-                self.employee_number = self.env['ir.sequence'].next_by_code('employee.contractual')
+    # @api.onchange('employee_type')
+    # def onchange_employee_type(self):
+    #     """generate sequence on base of employee type"""
+    #     if self.employee_type:
+    #         if self.employee_type == 'internal':
+    #             self.employee_number = self.env['ir.sequence'].next_by_code('employee.internal')
+    #         if self.employee_type == 'outsource':
+    #             self.employee_number = self.env['ir.sequence'].next_by_code('employee.outsource')
+    #         if self.employee_type == 'contractual':
+    #             self.employee_number = self.env['ir.sequence'].next_by_code('employee.contractual')
 
     @api.onchange('user_id')
     def _onchange_user(self):
