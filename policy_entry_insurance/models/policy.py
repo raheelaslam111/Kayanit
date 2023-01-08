@@ -284,7 +284,7 @@ class Policy(models.Model):
     @api.onchange('sum_insured','basic_prem')
     def _onchange_sum_insured(self):
         if self.sum_insured>0 and self.basic_prem:
-         self.premium_percent_am=(self.basic_prem/self.basic_prem)*100
+         self.premium_percent_am=self.sum_insured/self.basic_prem
         else:
             self.premium_percent_am=0.0
 
@@ -396,6 +396,8 @@ class Installment(models.Model):
     def _compute_percentage(self):
         for rec in self:
             percentage_am = 0.0
+            # self.percentage=0.0
+
             if rec.type_installement=='fixed':
                 if rec.fix_amount:
                     if rec.policy_id.total_premium_after_vat_ii:
@@ -407,7 +409,7 @@ class Installment(models.Model):
             if self.type_installement=='percentage':
                 if self.percentage:
                     if self.policy_id.total_premium_after_vat_ii:
-                        self.percentage = self.policy_id.total_premium_after_vat_ii*(self.percentage/100)
+                        self.fix_amount = self.policy_id.total_premium_after_vat_ii*(self.percentage/100)
                     # rec.amount_paid=percentage_am
             # else:
             #     rec.amount_paid=percentage_am

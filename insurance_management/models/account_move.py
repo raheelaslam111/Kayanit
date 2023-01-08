@@ -8,22 +8,26 @@ class AccountMove(models.Model):
     insurance_company_id = fields.Many2one('insurance.company', "Insurance Company")
     endorsment_ref = fields.Char("Endorsement Ref")
     commission_count = fields.Integer("commission",compute='_count_commission',store=True)
-    govt_fee_count = fields.Integer("Govt. Fee", compute='_count_govt_fee',store=True)
-    invoice_ref = fields.Many2one('account.move',string="Invoice Ref")
+    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count',store=True)
+    invoice_ref = fields.Many2one('account.move',domain="[('invoice_type','in',('policy','endors')),('state','=','posted')]", string="Invoice Ref")
     govt_boolean = fields.Boolean("Govt Bill")
     commission_boolean = fields.Boolean('Commission Invoice')
-    policy_id = fields.Many2one('insurance.policy', "Policy",
-                                domain="[('policy_type','=','endors'),('partner_id','=',partner_id),('state','=','posted'),('policy_type','=','policy')]")
+    policy_id = fields.Many2one('insurance.policy', "Policy Internal Ref",
+                                domain="[('policy_type','=','policy'),('partner_id','=',partner_id),('state','=','posted'),('policy_type','=','policy')]")
 
-    endorsment_id = fields.Many2one('insurance.policy', "Endoresment",
+    endorsment_id = fields.Many2one('insurance.policy', "Endoresment internal Ref",
                                     domain="[('policy_type','=','endors'),('partner_id','=',partner_id),('state','=','posted')]")
+
+
+
+
     def _count_commission(self):
         for rec in self:
             account_move = self.env['account.move'].search([('invoice_ref','=',self.id),('move_type','=','out_invoice')])
             if account_move:
                 rec.commission_count=len(account_move)
 
-    def _count_commission(self):
+    def govt_count(self):
         for rec in self:
             account_move = self.env['account.move'].search([('invoice_ref','=',self.id),('move_type','=','in_invoice')])
             if account_move:

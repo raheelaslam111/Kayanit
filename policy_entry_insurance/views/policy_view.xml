@@ -72,7 +72,7 @@
                             <group>
                                 <h3>Policy Detail</h3>
                                 <!--                                <field name="policy_id"/>-->
-                                <field name="policy_no" attrs="{'readonly':[('state','!=','draft')],'required':[('policy_type','=','policy')]}"/>
+                                <field name="policy_no" attrs="{'readonly':['|',('state','!=','draft'),('policy_type','=','endors')],'required':[('policy_type','=','policy')]}" force_save="1"/>
                                 <field name="endorsment_ref" attrs="{'invisible':[('policy_type','=','policy')],'required':[('policy_type','=','endors')]}"/>
                                 <field name="prev_policy" domain="[('policy_type','=','policy')]"
                                        attrs="{'invisible':[('policy_type','=','policy')],'required':[('policy_type','=','endors')]}"/>
