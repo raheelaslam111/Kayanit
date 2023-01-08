@@ -46,7 +46,7 @@
                         <div class="col-4 text-right"><Strong>المرجع المصادقة</Strong></div>
                         </t>
 
-                        <t t-if="doc.invoice_type=='policy'">
+                        <t t-if="doc.invoice_type=='policy' or doc.invoice_type=='commission_inv'">
                         <div class="col-4"><Strong>Policy No</Strong></div>
                         <div class="col-4 text-center"><span t-field="doc.policy_no"></span></div>
                         <div class="col-4 text-right"><Strong>لا توجد سياسة</Strong></div>
@@ -62,7 +62,7 @@
                     <div class="row">
                         <t t-if="doc.invoice_type=='commission_inv'">
                         <div class="col-4"><Strong>Policy Customer</Strong></div>
-                        <div class="col-4 text-center"><span t-field="doc.policy_id.insurance_company_id.ins_company_partner_id.name"></span></div>
+                        <div class="col-4 text-center"><span t-field="doc.policy_id.partner_id.name"></span></div>
                         <div class="col-4 text-right"><Strong>عميل السياسة</Strong></div>
                         </t>
                     </div>
