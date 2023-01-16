@@ -389,10 +389,10 @@ class Installment(models.Model):
     installment_date = fields.Date("Installment Date")
     amount_paid = fields.Float('Amount After  Percentage',store=True,compute='_compute_percentage')
     fix_amount = fields.Float('Fixed Amount')
-    percentage = fields.Float("Percentage %")
+    percentage = fields.Float("Percentage %",store=True,compute='onchange_percentage')
     no_of_installment = fields.Integer("No of Installment")
 
-    @api.onchange('type_installement','fix_amount')
+    @api.depends('type_installement','fix_amount')
     def _compute_percentage(self):
         for rec in self:
             percentage_am = 0.0
@@ -403,7 +403,7 @@ class Installment(models.Model):
                     if rec.policy_id.total_policy_am_after_vat:
                         percentage_am = (rec.fix_amount/rec.policy_id.total_policy_am_after_vat)*100
                         rec.percentage=percentage_am
-    @api.onchange('type_installement','percentage')
+    @api.depends('type_installement','percentage')
     def onchange_percentage(self):
             if self.type_installement=='percentage':
                 if self.percentage:
