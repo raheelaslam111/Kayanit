@@ -400,8 +400,8 @@ class Installment(models.Model):
 
             if rec.type_installement=='fixed':
                 if rec.fix_amount:
-                    if rec.policy_id.total_premium_after_vat:
-                        percentage_am = (rec.fix_amount/rec.policy_id.total_premium_after_vat)*100
+                    if rec.policy_id.total_policy_am_after_vat:
+                        percentage_am = (rec.fix_amount/rec.policy_id.total_policy_am_after_vat)*100
 
                 rec.percentage=percentage_am
     @api.onchange('type_installement','percentage')
@@ -409,7 +409,7 @@ class Installment(models.Model):
             if self.type_installement=='percentage':
                 if self.percentage:
                     if self.policy_id.total_premium_after_vat:
-                        self.fix_amount = self.policy_id.total_premium_after_vat*(self.percentage/100)
+                        self.fix_amount = self.policy_id.total_policy_am_after_vat*(self.percentage/100)
                     # rec.amount_paid=percentage_am
             # else:
             #     rec.amount_paid=percentage_am
