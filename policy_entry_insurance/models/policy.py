@@ -402,8 +402,7 @@ class Installment(models.Model):
                 if rec.fix_amount:
                     if rec.policy_id.total_policy_am_after_vat:
                         percentage_am = (rec.fix_amount/rec.policy_id.total_policy_am_after_vat)*100
-
-                rec.percentage=percentage_am
+                        rec.percentage=percentage_am
     @api.onchange('type_installement','percentage')
     def onchange_percentage(self):
             if self.type_installement=='percentage':
