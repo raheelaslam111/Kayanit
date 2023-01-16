@@ -739,7 +739,7 @@
 <!--                                               attrs="{'invisible':[('type_installement','=','fixed')]}"/>-->
                                         <field name="percentage"
                                                attrs="{'readonly':[('type_installement','=','fixed')]}"/>
-                                        <field name="amount_paid"/>
+
 
                                         <field name="fix_amount"
                                               attrs="{'readonly':[('type_installement','=','percentage')]}"/>

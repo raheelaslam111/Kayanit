@@ -389,10 +389,10 @@ class Installment(models.Model):
     installment_date = fields.Date("Installment Date")
     amount_paid = fields.Float('Amount After  Percentage',store=True,compute='_compute_percentage')
     fix_amount = fields.Float('Fixed Amount')
-    percentage = fields.Float("Percentage %",store=True,compute='onchange_percentage')
+    percentage = fields.Float("Percentage %")
     no_of_installment = fields.Integer("No of Installment")
 
-    @api.depends('type_installement','fix_amount')
+    @api.onchange('type_installement','fix_amount')
     def _compute_percentage(self):
         for rec in self:
             percentage_am = 0.0
@@ -401,14 +401,16 @@ class Installment(models.Model):
             if rec.type_installement=='fixed':
                 if rec.fix_amount:
                     if rec.policy_id.total_policy_am_after_vat:
-                        percentage_am = (rec.fix_amount/rec.policy_id.total_policy_am_after_vat)*100
-                        rec.percentage=percentage_am
-    @api.depends('type_installement','percentage')
+                        total=(rec.policy_id.total_premium_after_vat_ii + rec.policy_id.issuening_fee_total + rec.policy_id.premium_percent_am_total_ii + rec.policy_id.additional_fee_am_total) - rec.policy_id.ded_fee_am_total
+                        percentage_am = (rec.fix_amount/total)*100
+
+                rec.percentage=percentage_am
+    @api.onchange('type_installement','percentage')
     def onchange_percentage(self):
             if self.type_installement=='percentage':
                 if self.percentage:
-                    if self.policy_id.total_premium_after_vat:
-                        self.fix_amount = self.policy_id.total_policy_am_after_vat*(self.percentage/100)
+                        total=(rec.policy_id.total_premium_after_vat_ii + rec.policy_id.issuening_fee_total + rec.policy_id.premium_percent_am_total_ii + rec.policy_id.additional_fee_am_total) - rec.policy_id.ded_fee_am_total
+                        self.fix_amount = total*(self.percentage/100)
                     # rec.amount_paid=percentage_am
             # else:
             #     rec.amount_paid=percentage_am
