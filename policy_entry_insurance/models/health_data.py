@@ -75,7 +75,7 @@ class EmployeeData(models.Model):
     client_image = fields.Binary(string='Client Image')
     arabic_name = fields.Char(string='Arabic Name', tracking=True)
     gender = fields.Selection([('Male', 'Male'), ('Female', 'Female')], string='Gender')
-    dob = fields.Date(string='Birth Date')
+    dob = fields.Date(string='Birth Date(Georgia)')
     dob_hijra = fields.Date(string='Birth Date(Hijra)')
     age = fields.Float(string='Age',compute='get_member_age')
     # member_type = fields.Char(string='Member Type')

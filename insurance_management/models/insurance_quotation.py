@@ -281,7 +281,7 @@ class quotation_line(models.Model):
     client_image = fields.Binary(string='Client Image')
     arabic_name = fields.Char(string='Member Name (Ar)', tracking=True)
     gender = fields.Selection([('Male', 'Male'), ('Female', 'Female')], string='Gender')
-    dob = fields.Date(string='Birth Date')
+    dob = fields.Date(string='Birth Date(Georgia)')
     dob_hijra = fields.Date(string='Birth Date(Hijra)')
     age = fields.Float(string='Age', compute='get_member_age')
     member_type = fields.Many2one('member.type.standard',string='Member Type')
@@ -501,95 +501,95 @@ class vehicle_quotation(models.Model):
         for rec in self:
             rec.total_rate = sum(rec.vehicle_quotation_line_ids.mapped('rate'))
 
-    def upload_quotation(self):
-        active_id = self._context.get('active_id', False)
-        self.write({'client_branch_id': active_id})
-
-        wb = xlrd.open_workbook(file_contents=base64.decodebytes(self.quotation_file))
-        quotation_lines_vals_list = []
-        for sheet in wb.sheets():
-            for row in range(sheet.nrows):
-                if row < 6:
-                    continue
-                else:
-                    vehicle_client_id = sheet.cell(row, 0).value
-                    vehicle_type = sheet.cell(row, 1).value
-                    plate_no = sheet.cell(row, 2).value
-                    model = sheet.cell(row, 3).value
-                    # pdb.set_trace()
-                    chasis_no = sheet.cell(row, 4).value
-                    capacity = sheet.cell(row, 5).value
-                    driver_insurance = sheet.cell(row, 6).value
-                    repair = sheet.cell(row, 7).value
-                    value = sheet.cell(row, 8).value
-                    owner_name = sheet.cell(row, 9).value
-                    owner_id_no = sheet.cell(row, 10).value
-                    custom_id = sheet.cell(row, 11).value
-                    sequence_no = sheet.cell(row, 12).value
-                    user_id_no = sheet.cell(row, 13).value
-                    user_name = sheet.cell(row, 14).value
-                    building_no = sheet.cell(row, 15).value
-                    additional_no = sheet.cell(row, 16).value
-                    street = sheet.cell(row, 17).value
-                    city = sheet.cell(row, 18).value
-                    unit_no = sheet.cell(row, 19).value
-                    po_box = sheet.cell(row, 20).value
-                    zip_code = sheet.cell(row, 21).value
-                    neighborhead = sheet.cell(row, 22).value
-                    mobile_no = sheet.cell(row, 23).value
-                    exp_date_istemara_hijry = sheet.cell(row, 24).value
-                    vehicle_color = sheet.cell(row, 25).value
-                    gcc_covering = sheet.cell(row, 26).value
-                    natural_peril_cover = sheet.cell(row, 27).value
-                    dob_owner = sheet.cell(row, 28).value
-                    nationality = sheet.cell(row, 29).value
-                    vat = sheet.cell(row, 30).value
-                    rate = sheet.cell(row, 31).value
-                    vals = {
-                            # 'vehicle_type': vehicle_type,
-                            'plate_no': plate_no,
-                            # 'model': model,
-                            'chasis_no': chasis_no,
-                            'capacity': capacity,
-                            'driver_insurance': driver_insurance,
-                            'covering_maintenance': repair,
-                            # 'sum_insured': value,
-                            'owner_name': owner_name,
-                            'owner_id_no': owner_id_no,
-                            'custom_id': custom_id,
-                            'sequence_no': sequence_no,
-                            'user_id_no': user_id_no,
-                            'user_name': user_name,
-                            'building_no': building_no,
-                            'additional_no': additional_no,
-                            'street': street,
-                            # 'city': city,
-                            'unit_no': unit_no,
-                            'po_box': po_box,
-                            'zip_code': zip_code,
-                            'neighborhead': neighborhead,
-                            'mobile_no': mobile_no,
-                            # 'exp_date_istemara_hijry': exp_date_istemara_hijry,
-                            'vehicle_color': vehicle_color,
-                            'gcc_covering': gcc_covering,
-                            'natural_peril_cover': natural_peril_cover,
-                            # 'dob_owner': str(dob_owner),
-                            # 'customer_branch_id': self.id,
-                            'vat': vat,
-                            'rate': rate,
-                    }
-                    nationality = self.env['res.country'].search([('name', '=', str(nationality))], limit=1)
-                    if nationality:
-                        vals.update({'nationality': nationality.id})
-
-                    vehicle_client_id = self.env['client.vehicle.info'].search([('id', '=', int(vehicle_client_id))])
-
-                    if vehicle_client_id:
-                        vals.update({'vehicle_client_id': vehicle_client_id.id})
-
-                    quotation_lines_vals_list.append((0, 0, vals))
-
-        self.vehicle_quotation_line_ids = quotation_lines_vals_list
+    # def upload_quotation(self):
+    #     active_id = self._context.get('active_id', False)
+    #     self.write({'client_branch_id': active_id})
+    #
+    #     wb = xlrd.open_workbook(file_contents=base64.decodebytes(self.quotation_file))
+    #     quotation_lines_vals_list = []
+    #     for sheet in wb.sheets():
+    #         for row in range(sheet.nrows):
+    #             if row < 6:
+    #                 continue
+    #             else:
+    #                 vehicle_client_id = sheet.cell(row, 0).value
+    #                 vehicle_type = sheet.cell(row, 1).value
+    #                 plate_no = sheet.cell(row, 2).value
+    #                 model = sheet.cell(row, 3).value
+    #                 # pdb.set_trace()
+    #                 chasis_no = sheet.cell(row, 4).value
+    #                 capacity = sheet.cell(row, 5).value
+    #                 driver_insurance = sheet.cell(row, 6).value
+    #                 repair = sheet.cell(row, 7).value
+    #                 value = sheet.cell(row, 8).value
+    #                 owner_name = sheet.cell(row, 9).value
+    #                 owner_id_no = sheet.cell(row, 10).value
+    #                 custom_id = sheet.cell(row, 11).value
+    #                 sequence_no = sheet.cell(row, 12).value
+    #                 user_id_no = sheet.cell(row, 13).value
+    #                 user_name = sheet.cell(row, 14).value
+    #                 building_no = sheet.cell(row, 15).value
+    #                 additional_no = sheet.cell(row, 16).value
+    #                 street = sheet.cell(row, 17).value
+    #                 city = sheet.cell(row, 18).value
+    #                 unit_no = sheet.cell(row, 19).value
+    #                 po_box = sheet.cell(row, 20).value
+    #                 zip_code = sheet.cell(row, 21).value
+    #                 neighborhead = sheet.cell(row, 22).value
+    #                 mobile_no = sheet.cell(row, 23).value
+    #                 exp_date_istemara_hijry = sheet.cell(row, 24).value
+    #                 vehicle_color = sheet.cell(row, 25).value
+    #                 gcc_covering = sheet.cell(row, 26).value
+    #                 natural_peril_cover = sheet.cell(row, 27).value
+    #                 dob_owner = sheet.cell(row, 28).value
+    #                 nationality = sheet.cell(row, 29).value
+    #                 vat = sheet.cell(row, 30).value
+    #                 rate = sheet.cell(row, 31).value
+    #                 vals = {
+    #                         # 'vehicle_type': vehicle_type,
+    #                         'plate_no': plate_no,
+    #                         # 'model': model,
+    #                         'chasis_no': chasis_no,
+    #                         'capacity': capacity,
+    #                         'driver_insurance': driver_insurance,
+    #                         'covering_maintenance': repair,
+    #                         # 'sum_insured': value,
+    #                         'owner_name': owner_name,
+    #                         'owner_id_no': owner_id_no,
+    #                         'custom_id': custom_id,
+    #                         'sequence_no': sequence_no,
+    #                         'user_id_no': user_id_no,
+    #                         'user_name': user_name,
+    #                         'building_no': building_no,
+    #                         'additional_no': additional_no,
+    #                         'street': street,
+    #                         # 'city': city,
+    #                         'unit_no': unit_no,
+    #                         'po_box': po_box,
+    #                         'zip_code': zip_code,
+    #                         'neighborhead': neighborhead,
+    #                         'mobile_no': mobile_no,
+    #                         # 'exp_date_istemara_hijry': exp_date_istemara_hijry,
+    #                         'vehicle_color': vehicle_color,
+    #                         'gcc_covering': gcc_covering,
+    #                         'natural_peril_cover': natural_peril_cover,
+    #                         # 'dob_owner': str(dob_owner),
+    #                         # 'customer_branch_id': self.id,
+    #                         'vat': vat,
+    #                         'rate': rate,
+    #                 }
+    #                 nationality = self.env['res.country'].search([('name', '=', str(nationality))], limit=1)
+    #                 if nationality:
+    #                     vals.update({'nationality': nationality.id})
+    #
+    #                 vehicle_client_id = self.env['client.vehicle.info'].search([('id', '=', int(vehicle_client_id))])
+    #
+    #                 if vehicle_client_id:
+    #                     vals.update({'vehicle_client_id': vehicle_client_id.id})
+    #
+    #                 quotation_lines_vals_list.append((0, 0, vals))
+    #
+    #     self.vehicle_quotation_line_ids = quotation_lines_vals_list
 
 class vehicle_quotation_line(models.Model):
     _name = 'vehicle.quotation.line'

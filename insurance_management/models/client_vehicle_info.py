@@ -26,7 +26,7 @@ class client_vehicle_info(models.Model):
 
     vehicle_image = fields.Binary(string='Vehicle Image')
 
-    plate_no = fields.Char(string='Plate No. (En)',placeholder="1234 A-B-C")
+    plate_no = fields.Char(string='Plate No. (En)',placeholder="1234 ABC")
     plate_no_ar = fields.Char(string='Plate No. (Ar)')
 
     chasis_no = fields.Char(string='Chasis No',required=True)
@@ -74,21 +74,8 @@ class client_vehicle_info(models.Model):
     premium = fields.Float(string='Premium',compute="get_vechcle_info_premium")
     deductible = fields.Float(string='Deductible')
     minimum = fields.Float(string='Minimum')
-    def get_hijri_date(self):
-        for rec in self:
-            rec.exp_date_istemara_hijry = 'bbbb'
-            # Convert a Gregorian date to Hijri
-            h = Gregorian(1982, 12, 2).to_hijri()
-            # pdb.set_trace()
-            # source_code = """<span class="UserName"><a href="#">Martin Elias</a></span>"""
-            # soup = BeautifulSoup(source_code)
-            # path = request.httprequest.full_path
-            # r = requests.get(path)
-            # print(r)
 
 
-    def assign_hijri_date(self):
-        print('abcdddddddd')
 
     @api.depends('rate_percentage','value')
     def get_vechcle_info_premium(self):
