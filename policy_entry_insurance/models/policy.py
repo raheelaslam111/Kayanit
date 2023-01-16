@@ -409,7 +409,7 @@ class Installment(models.Model):
     def onchange_percentage(self):
             if self.type_installement=='percentage':
                 if self.percentage:
-                        total=(rec.policy_id.total_premium_after_vat_ii + rec.policy_id.issuening_fee_total + rec.policy_id.premium_percent_am_total_ii + rec.policy_id.additional_fee_am_total) - rec.policy_id.ded_fee_am_total
+                        total=(self.policy_id.total_premium_after_vat_ii + self.policy_id.issuening_fee_total + self.policy_id.premium_percent_am_total_ii + self.policy_id.additional_fee_am_total) - self.policy_id.ded_fee_am_total
                         self.fix_amount = total*(self.percentage/100)
                     # rec.amount_paid=percentage_am
             # else:
