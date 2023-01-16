@@ -401,8 +401,8 @@
                                         <field name="dep_no" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
                                         <field name="sponser_id" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
                                         <!--                                        <field name="occupation" readonly="1" optional="hide"/>-->
-<!--                                        <field name="marital_status" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>-->
-                                        <field name="elm_relation" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
+                                        <field name="marital_status" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
+<!--                                        <field name="elm_relation" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>-->
                                         <field name="vip" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
                                         <field name="as_vip" attrs="{'readonly':['|',('endorsment_type','!=','amend'),('policy_id','!=',False)]}" optional="hide"/>
                                         <!--                                        <field name="bank_id" readonly="1" optional="hide"/>-->
@@ -595,7 +595,7 @@
                                         <field name="mobile2" optional="hide"/>
                                         <field name="dep_no" optional="hide"/>
                                         <field name="sponser_id" optional="hide"/>
-<!--                                        <field name="marital_status" optional="hide"/>-->
+                                        <field name="marital_status" optional="hide"/>
                                         <field name="elm_relation" optional="hide"/>
                                         <field name="vip" optional="hide"/>
                                         <field name="as_vip" optional="hide"/>

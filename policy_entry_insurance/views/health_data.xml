@@ -30,7 +30,7 @@
                 <field name="dep_no" optional="hide"/>
                 <field name="sponser_id" optional="hide"/>
                 <!--                                        <field name="occupation" optional="hide"/>-->
-<!--                <field name="marital_status" optional="hide"/>-->
+                <field name="marital_status" optional="hide"/>
                 <field name="elm_relation" optional="hide"/>
                 <field name="vip" optional="hide"/>
                 <field name="as_vip" optional="hide"/>
@@ -59,7 +59,7 @@
                             <field name="dependent_id"/>
                             <field name="nationality" options="{'no_open': True, 'no_create': True}"/>
 <!--                            <field name="occupation"/>-->
-<!--                            <field name="marital_status"/>-->
+                            <field name="marital_status"/>
                         </group>
                         <group>
                              <field name="gender"/>
@@ -170,7 +170,7 @@
                 <field name="dep_no" optional="hide"/>
                 <field name="sponser_id" optional="hide"/>
                 <!--                                        <field name="occupation" optional="hide"/>-->
-<!--                <field name="marital_status" optional="hide"/>-->
+                <field name="marital_status" optional="hide"/>
                 <field name="elm_relation" optional="hide"/>
                 <field name="vip" optional="hide"/>
                 <field name="as_vip" optional="hide"/>
