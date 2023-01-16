@@ -80,7 +80,7 @@ class client_vehicle_info(models.Model):
     @api.depends('rate_percentage','value')
     def get_vechcle_info_premium(self):
         for rec in self:
-            rec.premium = rec.rate_percentage*rec.value
+            rec.premium = (rec.rate_percentage*rec.value)/100
 
     @api.onchange('vehicle_make_id')
     def set_model_wrt_vehicle_make_id(self):

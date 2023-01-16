@@ -415,7 +415,7 @@
                                 <field name="vehicle_detail" attrs="{'readonly':[('state','!=','draft')]}">
                                     <tree>
                                         <field name="vehicle_type_id"/>
-                                        <field name="plate_no" placeholder="1234 A-B-C"/>
+                                        <field name="plate_no" placeholder="1234 ABC"/>
                                         <field name="plate_no_ar"/>
                                         <field name="chassis"/>
                                         <field name="capacity"/>

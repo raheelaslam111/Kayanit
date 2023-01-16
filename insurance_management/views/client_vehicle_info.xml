@@ -9,7 +9,7 @@
                 <field name="document_no"/>
                 <field name="customer_id"/>
                 <field name="vehicle_type"/>
-                <field name="plate_no" placeholder="1234 A-B-C"/>
+                <field name="plate_no" placeholder="1234 ABC"/>
                 <field name="plate_no_ar"/>
                 <field name="chasis_no"/>
                 <field name="capacity"/>
@@ -116,7 +116,7 @@
                             <field name="vehicle_model_id"/>
                             <field name="model"/>
                             <field name="vehicle_type"/>
-                            <field name="plate_no" placeholder="1234 A-B-C"/>
+                            <field name="plate_no" placeholder="1234 ABC"/>
                             <field name="plate_no_ar"/>
                             <field name="chasis_no"/>
                         </group>
@@ -164,7 +164,7 @@
                 <field name="document_no"/>
                 <field name="customer_id"/>
                 <field name="vehicle_type"/>
-                <field name="plate_no" placeholder="1234 A-B-C"/>
+                <field name="plate_no" placeholder="1234 ABC"/>
                 <field name="plate_no_ar"/>
                 <field name="activity_ids" string="Next Activity" widget="list_activity" optional="show"/>
                 <field name="chasis_no" optional="1"/>
@@ -272,7 +272,7 @@
                             <field name="vehicle_model_id"/>
                             <field name="model"/>
                             <field name="vehicle_type"/>
-                            <field name="plate_no" placeholder="1234 A-B-C"/>
+                            <field name="plate_no" placeholder="1234 ABC"/>
                             <field name="plate_no_ar"/>
                             <field name="chasis_no"/>
                         </group>
