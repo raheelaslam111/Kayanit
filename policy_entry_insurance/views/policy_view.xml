@@ -223,7 +223,7 @@
                                                 <field name="additional_fee_am" attrs="{'readonly':[('state','!=','draft')]}" no_label="1"/>
                                             </td>
                                             <td style="border: 2px solid black;">
-                                                <field no_label="1" name="additional_fee_am_vat"/>
+                                                <field no_label="1" name="additional_fee_am_vat" attrs="{'readonly':[('state','!=','draft')]}"/>
                                             </td>
                                             <td style="border: 2px solid black;">
                                                 <field name="additional_fee_am_total" readonly="1" force_save="1"  no_label="1"/>

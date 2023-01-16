@@ -11,8 +11,8 @@
                                 <field name="policy_id"/>
                                 <field name="installment_date"/>
                                   <field name="activity_ids" widget="list_activity"/>
-                                <field name="fix_amount"/>
-                                <field name="percentage"/>
+                                <field name="fix_amount" force_save="1"/>
+                                <field name="percentage" force_save="1"/>
 
 
                             </group>
