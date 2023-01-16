@@ -314,7 +314,7 @@
                                         <group>
                                             <field name="quotation_no"/>
                                             <field name="email" invisible="1"/>
-                                            <field name="client_branch_id" invisible="0" options="{'no_open': True, 'no_create': True}"/>
+                                            <field name="client_branch_id" invisible="1" options="{'no_open': True, 'no_create': True}"/>
                                             <field name="branch_db_id" invisible="1"/>
                                             <field name="quotation_file" string="Quotation File"/>
                                             <button name="get_medical_quote_lines" type="object" string="Map Clients" class="oe_highlight"/>

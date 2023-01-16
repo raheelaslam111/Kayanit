@@ -188,7 +188,7 @@
                                 <field name="dependent_id"/>
                                 <field name="nationality" options="{'no_open': True, 'no_create': True}"/>
                                 <field name="occupation"/>
-                                <field name="marital_status"/>
+<!--                                <field name="marital_status"/>-->
                             </group>
                              <group>
 

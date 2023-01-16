@@ -6,7 +6,7 @@ class AccountMove(models.Model):
 
     policy_id = fields.Many2one('insurance.policy',"Internal Ref",)
 
-    endorsment_id = fields.Many2one('insurance.policy',"Endoresment",)
+    endorsment_id = fields.Many2one('insurance.policy',"Endoresment Internal Ref",)
     invoice_type = fields.Selection([('regular_inv','Regular Invoice'),('policy','Inception'),('endors','Endorsement'),('commission_inv','Commission Invoice'),('claim_inv','Claim Invoice'),('sale_commission','Salesperson Comission')],default='policy',string="Transaction Type")
 
     sales_person = fields.Many2one('hr.employee',string="Sales Person")
