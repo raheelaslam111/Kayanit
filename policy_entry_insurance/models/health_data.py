@@ -75,7 +75,7 @@ class EmployeeData(models.Model):
     client_image = fields.Binary(string='Client Image')
     arabic_name = fields.Char(string='Arabic Name', tracking=True)
     gender = fields.Selection([('Male', 'Male'), ('Female', 'Female')], string='Gender')
-    dob = fields.Date(string='Birth Date')
+    dob = fields.Date(string='Birth Date(Georgia)')
     dob_hijra = fields.Date(string='Birth Date(Hijra)')
     age = fields.Float(string='Age',compute='get_member_age')
     # member_type = fields.Char(string='Member Type')
@@ -93,9 +93,7 @@ class EmployeeData(models.Model):
     dep_no = fields.Char(string='Dep Code')
     sponser_id = fields.Char(string='Sponser ID')
     # occupation = fields.Char(string='Occupation')
-    marital_status = fields.Selection(
-        [('single', 'Single'), ('married', 'Married'), ('divorced', 'Divorced'), ('widowed', 'Widowed')],
-        string='Marital Status')
+    marital_status = fields.Char(string='Marital Status')
     # marital_status = fields.Selection([('single','Singe)],string='Relation')
     elm_relation = fields.Selection([('not_specified', 'Not Specified'), ('son', 'Son'), ('daughter', 'Daughter'),
                                      ('wife', 'Wife'),

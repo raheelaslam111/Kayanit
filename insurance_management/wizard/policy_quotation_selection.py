@@ -115,7 +115,7 @@ class PolicySelectionQuotation(models.TransientModel):
                         'dep_no': client.dep_no,
                         'sponser_id': client.sponser_id,
                         'occupation': client.occupation.id,
-                        'marital_status': client.marital_status.id or False,
+                        'marital_status': client.marital_status.name or False,
                         # 'elm_relation':client.elm_relation,
                         'vip': client.vip,
                         'as_vip': client.as_vip,

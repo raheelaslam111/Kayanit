@@ -314,7 +314,7 @@
                                         <group>
                                             <field name="quotation_no"/>
                                             <field name="email" invisible="1"/>
-                                            <field name="client_branch_id" invisible="0" options="{'no_open': True, 'no_create': True}"/>
+                                            <field name="client_branch_id" invisible="1" options="{'no_open': True, 'no_create': True}"/>
                                             <field name="branch_db_id" invisible="1"/>
                                             <field name="quotation_file" string="Quotation File"/>
                                             <button name="get_medical_quote_lines" type="object" string="Map Clients" class="oe_highlight"/>
@@ -567,7 +567,7 @@
                                             <field name="vehicle_quotation_line_ids">
                                                 <tree create="0" delete="0" edit="1" editable="bottom">
                                                     <field name="vehicle_type" readonly="1"/>
-                                                    <field name="plate_no" placeholder="1234 A-B-C" readonly="1"/>
+<!--                                                    <field name="plate_no" placeholder="1234 A-B-C" readonly="1"/>-->
                                                     <field name="plate_no_ar" readonly="1"/>
                                                     <field name="chasis_no" readonly="1"/>
                                                     <field name="capacity" optional="1" readonly="1"/>
@@ -881,7 +881,7 @@
 <!--								</tree>-->
 <!--                            </field>-->
 <!--                        </page>-->
-                        <page string="Customer Attachments">
+                        <page string="Customer Attachments" attrs="{'invisible': ['|',('customer_id', '=', False),('insurance_type_id', '=', False)]}">
                             <field name="customer_attachment_ids" attrs="{'readonly':[('state','=','validate')]}">
                                 <tree editable="bottom">
                                     <field name="name"/>

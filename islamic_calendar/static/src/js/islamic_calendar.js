@@ -361,6 +361,7 @@ odoo.define('islamic_calendar.islamic_calendar', function(require) {
             var field = this.state.fields[name];
             if (field) {
                 if (field.type == 'datetime' || field.type == 'date' && options.mode == 'readonly') {
+                    console.log('field',field);
                     var text = $cell.text();
                     var cal_greg = $.calendars.instance('gregorian');
                     var cal_hijri = $.calendars.instance('islamic');
@@ -376,6 +377,12 @@ odoo.define('islamic_calendar.islamic_calendar', function(require) {
                         var hijri_value = cal_hijri.formatDate('M d, yyyy', date);
                         var new_date = text + ' (' + hijri_value + ')';
                     }
+                    if (field.name == 'dob_hijra') {
+                        new_date = hijri_value;
+                    }
+                    else {
+                            new_date = text;
+                        }
 
                     return $cell.text(new_date).attr('title', new_date);
                 }

@@ -113,7 +113,6 @@
 <!--                            <field name="dep_no" optional="hide"/>-->
 <!--                            <field name="sponser_id" optional="hide"/>-->
 <!--                            &lt;!&ndash;                                                    <field name="occupation" optional="hide"/>&ndash;&gt;-->
-<!--                            <field name="marital_status" optional="hide"/>-->
 <!--                        </group>-->
 <!--                        <group>-->
 <!--                            <field name="elm_relation" optional="hide"/>-->
