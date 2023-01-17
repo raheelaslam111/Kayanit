@@ -12,10 +12,10 @@ import calendar
 
 class Policy(models.Model):
     _name = 'insurance.policy'
-
     _rec_name = 'policy_id_i'
-
     _inherit = ['mail.thread', 'mail.activity.mixin']
+
+
     partner_id = fields.Many2one('res.partner',string='Customer')
     policy_no = fields.Char("Policy No",)
     branch_id = fields.Many2one('insurance.branch',"Branch Name")
@@ -28,32 +28,32 @@ class Policy(models.Model):
     business_class = fields.Many2one('business.class.config','Business Class')
 
     currency_id = fields.Many2one('res.currency','Currency')
-    sum_insured = fields.Float('Sum Insured')
-    basic_prem = fields.Float('Premium')
-    net_premium = fields.Float('Net Premium')
-    net_pr_percentage = fields.Float('Net Premium Percentage')
-    basic_amount = fields.Float('Basic Amount')
-    basic_amount_percentage = fields.Float("Basic Amount Percentage")
-    gross_return = fields.Float('Gross Return')
-    net_return_amount = fields.Float('Net Return')
-    issuening_fee = fields.Float('Issuing Fee')
-    gross_premium = fields.Float('Gross Premium')
-    calculated_gross = fields.Float('Calculated Gross')
-    premium_due = fields.Float('Premium Due')
-    return_end_no = fields.Float('Return End No')
+    sum_insured = fields.Float('Sum Insured', tracking=True)
+    basic_prem = fields.Float('Premium', tracking=True)
+    net_premium = fields.Float('Net Premium', tracking=True)
+    net_pr_percentage = fields.Float('Net Premium Percentage', tracking=True)
+    basic_amount = fields.Float('Basic Amount', tracking=True)
+    basic_amount_percentage = fields.Float("Basic Amount Percentage", tracking=True)
+    gross_return = fields.Float('Gross Return', tracking=True)
+    net_return_amount = fields.Float('Net Return', tracking=True)
+    issuening_fee = fields.Float('Issuing Fee', tracking=True)
+    gross_premium = fields.Float('Gross Premium', tracking=True)
+    calculated_gross = fields.Float('Calculated Gross', tracking=True)
+    premium_due = fields.Float('Premium Due', tracking=True)
+    return_end_no = fields.Float('Return End No', tracking=True)
 
-    is_renewel_policy  = fields.Boolean('Is Renewal Policy')
-    is_extra_benfit = fields.Boolean('Is Extra Benefit')
-    is_under_agreement = fields.Boolean('Is Under Agreement')
-    agreement_file = fields.Binary("Agreement File")
+    is_renewel_policy  = fields.Boolean('Is Renewal Policy', tracking=True)
+    is_extra_benfit = fields.Boolean('Is Extra Benefit', tracking=True)
+    is_under_agreement = fields.Boolean('Is Under Agreement', tracking=True)
+    agreement_file = fields.Binary("Agreement File", tracking=True)
 
-    terms=fields.Selection([('long_term','Long Term'),('short_term','Short Term')],string="Terms",default='long_term')
-    net_prem_percent = fields.Float()
-    basic_percent = fields.Float()
+    terms=fields.Selection([('long_term','Long Term'),('short_term','Short Term')],string="Terms",default='long_term', tracking=True)
+    net_prem_percent = fields.Float(tracking=True)
+    basic_percent = fields.Float(tracking=True)
     benefits_ids = fields.One2many('insurance.benefit.line','policy_id',string="Benefits Line")
 
     installment_ids = fields.One2many('insurance.installment','policy_id',string="Installment")
-    paid = fields.Float('Paid Amount')
+    paid = fields.Float('Paid Amount', tracking=True)
     # bussines_class_id = fields.Many2one('insurance.business.class',"Go Business Class")
     vehicle_detail = fields.One2many('insurance.vehicle','policy_id',"Vehicle detail")
     endors_vehicle_ids = fields.Many2many('insurance.vehicle',string="Endorsement Vehicle Detail")
@@ -62,33 +62,33 @@ class Policy(models.Model):
     health_ids = fields.One2many('insurance.health','policy_id','Health Detail')
     health_endors_ids = fields.Many2many('insurance.employee.data', string='Health Detail')
     # ******************scheduled Policy****************
-    vat_premium = fields.Float('Vat Premium',default=15.0)
+    vat_premium = fields.Float('Vat Premium',default=15.0, tracking=True)
     total_premium_after_vat = fields.Float("Total After Vat",store=1,compute='compute_total_prem')
 
-    premium_percent_am = fields.Float("Premium Percent")
-    premium_percent_vat = fields.Float("Premium Percent Vat",default=15.0)
-    premium_percent_am_total_ii= fields.Float("Premium Percent total")
+    premium_percent_am = fields.Float("Premium Percent, tracking=True")
+    premium_percent_vat = fields.Float("Premium Percent Vat",default=15.0, tracking=True)
+    premium_percent_am_total_ii= fields.Float("Premium Percent total", tracking=True)
 
-    issuening_fee_percent = fields.Float("Issueing Fee Percent",default=15.0)
-    issuening_fee_total = fields.Float("Issuenc Fee total")
+    issuening_fee_percent = fields.Float("Issueing Fee Percent",default=15.0, tracking=True)
+    issuening_fee_total = fields.Float("Issuenc Fee total", tracking=True)
 
-    additional_fee_am = fields.Float("Add Fee amount")
-    additional_fee_am_vat = fields.Float("Additional Fee Vat",default=15.0)
-    additional_fee_am_total = fields.Float("Additional Fee Total")
+    additional_fee_am = fields.Float("Add Fee amount", tracking=True)
+    additional_fee_am_vat = fields.Float("Additional Fee Vat",default=15.0, tracking=True)
+    additional_fee_am_total = fields.Float("Additional Fee Total", tracking=True)
 
-    ded_fee_am = fields.Float("Ded Amount")
-    ded_fee_am_vat = fields.Float("Ded Fee vat",default=15.0)
-    ded_fee_am_total = fields.Float("Ded Fee total")
+    ded_fee_am = fields.Float("Ded Amount", tracking=True)
+    ded_fee_am_vat = fields.Float("Ded Fee vat",default=15.0, tracking=True)
+    ded_fee_am_total = fields.Float("Ded Fee total", tracking=True)
 
-    total_policy_am = fields.Float("Total Policy",readonly=1)
+    total_policy_am = fields.Float("Total Policy",readonly=1, tracking=True)
     total_policy_vat = fields.Float("Total Policy Vat",compute='_total_vat',store=True)
     total_policy_am_after_vat=  fields.Float(store=True,compute="_calculate_total")
 
     move_ids = fields.One2many('account.move','policy_id',string="Invoices")
-    journal_id = fields.Many2one('account.journal',string="Journal ")
-    payment_term_id = fields.Many2one('account.payment.term',"Payment Term")
-    policy_type = fields.Selection([('policy','Inception'),('endors','Endorsement')],default='policy',string="Transaction Type")
-    endorsment_ref = fields.Char("Endorsement Ref")
+    journal_id = fields.Many2one('account.journal',string="Journal", tracking=True)
+    payment_term_id = fields.Many2one('account.payment.term',"Payment Term", tracking=True)
+    policy_type = fields.Selection([('policy','Inception'),('endors','Endorsement')],default='policy',string="Transaction Type", tracking=True)
+    endorsment_ref = fields.Char("Endorsement Ref", tracking=True)
     total_instalment_am = fields.Float('Total Installment after vat',compute='compute_installment')
     difference_instalment = fields.Float('Difference',compute='compute_installment')
     total_document_number = fields.Integer(string='Total Documents', compute='get_total_documents')

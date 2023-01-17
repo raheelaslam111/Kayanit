@@ -32,14 +32,12 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <div class="oe_button_box" name="button_box">
                             <button name="action_open_task" type="object"
                                 class="oe_stat_button" icon="fa-tasks">
                                 <div class="o_stat_info">
                                     <span class="o_stat_text">Task</span>
                                 </div>
                             </button>
-                        </div>
 <!--                        <button name="action_open_claim_documents" type="object"-->
 <!--                            class="oe_stat_button" icon="fa-star">-->
 <!--                            <div class="o_stat_info">-->
@@ -603,12 +601,16 @@
                 <field name="stage_label_color"
                        invisible="1"/>
                 <field name="name" />
-                <field name="type_id"
-                       optional="show"/>
-                <field name="category_id"
-                       optional="show"/>
-                <field name="parent_id"
-                       optional="show"/>
+<!--                <field name="type_id"-->
+<!--                       optional="show"/>-->
+<!--                <field name="category_id"-->
+<!--                       optional="show"/>-->
+<!--                <field name="parent_id"-->
+<!--                       optional="show"/>-->
+                <field name="client_id" optional="show"/>
+                <field name="insurance_company_id" optional="show"/>
+                <field name="policy_id" optional="show"/>
+                <field name="policy_no" optional="show"/>
                 <field name="author_id"
                        optional="show"/>
                 <field name="user_id"

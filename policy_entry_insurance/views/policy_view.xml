@@ -749,7 +749,7 @@
                                 </field>
                                 <group class="oe_subtotal_footer oe_right">
                                     <field name="total_policy_am_after_vat" readonly="1"/>
-                                    <field name="total_instalment_am" force_save="1" readonly="1" string="Total Premium After Vat"/>
+                                    <field name="total_instalment_am" force_save="1" readonly="1" string="Total Installment"/>
                                     <field name="difference_instalment"/>
                                 </group>
                             </page>
@@ -881,7 +881,7 @@
                     <field name="broker_commision" optional="hide"/>
 
                     <field name="sales_employee" optional="hide"/>
-                                <field name="supervisor" optional="hide"/>
+                    <field name="supervisor" optional="hide"/>
 
 
                 </tree>

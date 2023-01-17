@@ -653,6 +653,7 @@ class vehicle_quotation_line(models.Model):
     rate_percentage = fields.Float(string='Rate %')
     deductible = fields.Float(string='Deductible')
     minimum = fields.Float(string='Minimum')
+    note = fields.Text(string='Note')
 
     def add_policy(self):
 

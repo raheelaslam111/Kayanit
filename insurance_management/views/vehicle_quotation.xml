@@ -340,50 +340,113 @@
         <field name="arch" type="xml">
             <form string="Vehicle Quotation Line" create="0" edit="1" delete="0">
                 <sheet>
-                    <div class="oe_title">
-                        <label for="owner_name" class="oe_edit_only"/>
-                        <h1><field name="owner_name" class="oe_inline"/></h1>
-                    </div>
+                    <field name="vehicle_image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true}"/>
                     <group>
-                        <group string="Given Premium">
-                            <field name="rate"/>
-                            <field name="vat"/>
-                            <field name="total"/>
+                        <group string="Address Detail">
+                            <field name="building_no"/>
+                            <field name="additional_no"/>
+                            <field name="street"/>
+                            <field name="country" options="{'no_open': True, 'no_create': True}"/>
+                            <field name="city"/>
+                            <field name="unit_no"/>
+                            <field name="po_box"/>
+                            <field name="zip_code"/>
+                            <field name="neighborhead"/>
                         </group>
-                        <group string="Client ID" invisible="1">
-                            <field name="vehicle_client_id" invisible="1" nolabel="1" domain="[('id','in',related_vehicle_client_ids)]"/>
-                            <field name="client_branch_id" invisible="1"/>
-                            <field name="related_vehicle_client_ids" nolabel="1" invisible="1"/>
+                         <group string="Coverage Details">
+                            <field name="driver_insurance"/>
+                            <field name="covering_maintenance"/>
+                             <field name="gcc_covering"/>
+                            <field name="natural_peril_cover"/>
+                             <field name="personal_accedant"/>
+                            <field name="is_driver"/>
+                            <field name="driver_plus_passenger"/>
+                             <field name="rate_percentage"/>
+                            <field name="deductible"/>
+                            <field name="minimum"/>
                         </group>
                     </group>
                     <group>
+                        <group string="Owner Details">
+                            <field name="owner_name"/>
+                            <field name="owner_id_no"/>
+                            <field name="dob_owner"/>
+                            <field name="nationality"/>
+                        </group>
+                        <group string="Driver Details">
+                            <field name="user_id_no"/>
+                            <field name="user_name"/>
+                            <field name="mobile_no"/>
+                        </group>
+                    </group>
+                    <group string="Vehicle Details">
                         <group>
+                            <field name="vehicle_make_id"/>
+                            <field name="vehicle_model_id"/>
+                            <field name="model"/>
                             <field name="vehicle_type"/>
                             <field name="plate_no" placeholder="1234 ABC"/>
                             <field name="plate_no_ar"/>
-                            <field name="model"/>
                             <field name="chasis_no"/>
                         </group>
-                         <group>
+                        <group>
                             <field name="capacity"/>
-                            <field name="driver_insurance"/>
-                            <field name="covering_maintenance"/>
-                            <field name="sum_insured"/>
-                        </group>
-                    </group>
-                    <group>
-                        <group>
-                            <field name="owner_id_no"/>
+                            <field name="vehicle_color"/>
+                            <field name="exp_date_istemara_hijry"/>
+                            <field name="exp_date_en"/>
                             <field name="custom_id"/>
+                            <field name="sequence_no"/>
                         </group>
                         <group>
-                            <field name="user_id_no"/>
-                            <field name="user_name"/>
-                            <field name="insurance_company_id"/>
-                            <field name="rate"/>
+                            <field name="note"/>
                         </group>
                     </group>
                 </sheet>
+<!--                <sheet>-->
+<!--                    <div class="oe_title">-->
+<!--                        <label for="owner_name" class="oe_edit_only"/>-->
+<!--                        <h1><field name="owner_name" class="oe_inline"/></h1>-->
+<!--                    </div>-->
+<!--                    <group>-->
+<!--                        <group string="Given Premium">-->
+<!--                            <field name="rate"/>-->
+<!--                            <field name="vat"/>-->
+<!--                            <field name="total"/>-->
+<!--                        </group>-->
+<!--                        <group string="Client ID" invisible="1">-->
+<!--                            <field name="vehicle_client_id" invisible="1" nolabel="1" domain="[('id','in',related_vehicle_client_ids)]"/>-->
+<!--                            <field name="client_branch_id" invisible="1"/>-->
+<!--                            <field name="related_vehicle_client_ids" nolabel="1" invisible="1"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="vehicle_type"/>-->
+<!--                            <field name="plate_no" placeholder="1234 ABC"/>-->
+<!--                            <field name="plate_no_ar"/>-->
+<!--                            <field name="model"/>-->
+<!--                            <field name="chasis_no"/>-->
+<!--                        </group>-->
+<!--                         <group>-->
+<!--                            <field name="capacity"/>-->
+<!--                            <field name="driver_insurance"/>-->
+<!--                            <field name="covering_maintenance"/>-->
+<!--                            <field name="sum_insured"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="owner_id_no"/>-->
+<!--                            <field name="custom_id"/>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="user_id_no"/>-->
+<!--                            <field name="user_name"/>-->
+<!--                            <field name="insurance_company_id"/>-->
+<!--                            <field name="rate"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                </sheet>-->
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
                     <field name="activity_ids" widget="mail_activity"/>

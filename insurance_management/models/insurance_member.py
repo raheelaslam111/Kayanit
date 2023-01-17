@@ -842,7 +842,7 @@ class client_branch(models.Model):
                 worksheet.write(rows, 22, line.neighborhead or '')
                 worksheet.write(rows, 23, line.mobile_no or '')
                 worksheet.write(rows, 24, line.exp_date_istemara_hijry or '')
-                worksheet.write(rows, 25, line.vehicle_color or '')
+                worksheet.write(rows, 25, line.vehicle_color.name or '')
                 worksheet.write(rows, 26, line.gcc_covering or '')
                 worksheet.write(rows, 27, line.natural_peril_cover or '')
                 worksheet.write(rows, 28, line.dob_owner or '')
