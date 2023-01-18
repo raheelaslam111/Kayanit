@@ -114,6 +114,12 @@ class AccountMove(models.Model):
 
         params = self.env['ir.config_parameter'].sudo()
         gov_rel_email = params.get_param('gov_rel_email', default='')
+        move_t = ''
+        if self.move_type == 'out_invoice':
+            move_t = 'out_invoice'
+        elif self.move_type == 'out_refund':
+            move_t = 'out_refund'
+
         account_move = self.env['account.move'].create({
             'partner_id': self.insurance_company_id.ins_company_partner_id.id,
             'policy_id': self.policy_id.id,
@@ -121,7 +127,7 @@ class AccountMove(models.Model):
             'invoice_type':'commission_inv',
             'journal_id': self.journal_id.id,
             # 'invoice_payment_term_id': self.payment_term_id.id,
-            'move_type': 'out_invoice',
+            'move_type': move_t,
             'policy_no': self.policy_no,
             'invoice_date_due':due_date,
             'invoice_ref':self.id,
@@ -190,7 +196,7 @@ class AccountMove(models.Model):
                 'default_commission_boolean': True
 
             },
-            'domain': [('move_type','=','out_invoice'),('invoice_ref', '=', self.id)],
+            'domain': [('move_type','in',('out_invoice','out_refund')),('invoice_ref', '=', self.id)],
         }
 
     def action_open_govt_fee(self):
@@ -206,7 +212,7 @@ class AccountMove(models.Model):
                     'default_govt_boolean':True
 
                 },
-                'domain': [('move_type', '=', 'in_invoice'),('invoice_ref', '=', self.id)],
+                'domain': [('move_type', 'in', ('in_invoice','in_refund')),('invoice_ref', '=', self.id)],
             }
 
 

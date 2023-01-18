@@ -4,7 +4,7 @@ from odoo.exceptions import UserError, ValidationError
 class Policy(models.Model):
     _inherit = 'insurance.policy'
 
-    insurance_company_id = fields.Many2one('insurance.company', "Insurance Company")
+    insurance_company_id = fields.Many2one('insurance.company', "Insurance Company",required=1)
     insurance_partner = fields.Many2one('res.partner','Insurance Partner')
 
     @api.onchange('insurance_company_id')
