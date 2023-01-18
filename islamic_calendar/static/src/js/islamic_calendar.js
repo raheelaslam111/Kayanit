@@ -380,6 +380,9 @@ odoo.define('islamic_calendar.islamic_calendar', function(require) {
                     if (field.name == 'dob_hijra') {
                         new_date = hijri_value;
                     }
+                    else if (field.name == 'exp_date_istemara_hijry') {
+                        new_date = hijri_value;
+                    }
                     else {
                             new_date = text;
                         }
