@@ -36,6 +36,17 @@ class Policy(models.Model):
     count_govt_fee = fields.Integer("Govt Fee",compute='compute_govt')
 
 
+    def name_get(self):
+        result = []
+        for policy in self:
+            if policy.policy_type=='endors':
+
+                result.append((policy.id, policy.endorsment_ref))
+            elif policy.policy_type=='policy':
+                result.append((policy.id, policy.policy_no))
+        return result
+
+
     @api.depends('move_ids')
     def compute_govt(self):
         for rec in self:

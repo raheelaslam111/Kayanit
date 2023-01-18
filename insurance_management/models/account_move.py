@@ -7,8 +7,8 @@ class AccountMove(models.Model):
 
     insurance_company_id = fields.Many2one('insurance.company', "Insurance Company")
     endorsment_ref = fields.Char("Endorsement Ref")
-    commission_count = fields.Integer("commission",compute='_count_commission',store=True)
-    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count',store=True)
+    commission_count = fields.Integer("commission",compute='_count_commission')
+    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count')
     invoice_ref = fields.Many2one('account.move',domain="[('invoice_type','in',('policy','endors')),('state','=','posted')]", string="Invoice Ref")
     govt_boolean = fields.Boolean("Govt Bill")
     commission_boolean = fields.Boolean('Commission Invoice')
@@ -17,6 +17,8 @@ class AccountMove(models.Model):
 
     endorsment_id = fields.Many2one('insurance.policy', "Endoresment internal Ref",
                                     domain="[('policy_type','=','endors'),('partner_id','=',partner_id),('state','=','posted')]")
+
+
 
 
 
@@ -201,3 +203,23 @@ class AccountMove(models.Model):
                 },
                 'domain': [('move_type', '=', 'in_invoice'),('invoice_ref', '=', self.id)],
             }
+
+
+class AccountMoveReversal(models.TransientModel):
+    """
+    Account move reversal wizard, it cancel an account move by reversing it.
+    """
+    _inherit = 'account.move.reversal'
+
+
+
+    def _prepare_default_reversal(self, move):
+        res = super()._prepare_default_reversal(move)
+
+        res.update({
+            'policy_no':move.policy_no,
+            'policy_id':move.policy_id.id,
+            'endorsment_id':move.endorsment_id.id,
+            'invoice_type':move.invoice_type
+        })
+        return res
