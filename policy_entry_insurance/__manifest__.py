@@ -11,7 +11,7 @@
     'category': '',
     'author': '',
     'website': 'http://xyz.com/',
-    'depends': ['base','mail','account','account_accountant','hr','product','fleet','documents','project'],
+    'depends': ['base','mail','account','account_accountant','hr','product','fleet','documents','project','islamic_calendar'],
     'data': [
         'security/ir.model.access.csv',
         'views/policy_view.xml',
