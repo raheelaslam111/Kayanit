@@ -89,7 +89,7 @@ class Policy(models.Model):
     payment_term_id = fields.Many2one('account.payment.term',"Payment Term", tracking=True)
     policy_type = fields.Selection([('policy','Inception'),('endors','Endorsement')],default='policy',string="Transaction Type", tracking=True)
     endorsment_ref = fields.Char("Endorsement Ref", tracking=True)
-    total_instalment_am = fields.Float('Total Installment after vat',compute='compute_installment')
+    total_instalment_am = fields.Float('Total Installment',compute='compute_installment')
     difference_instalment = fields.Float('Difference',compute='compute_installment')
     total_document_number = fields.Integer(string='Total Documents', compute='get_total_documents')
     note = fields.Text("Notes")
@@ -196,10 +196,10 @@ class Policy(models.Model):
         for rec in self:
             if rec.installment_ids:
                 for amount in rec.installment_ids:
-                    if amount.type_installement=='fixed':
+                    # if amount.type_installement=='fixed':
                         instalment_am+=amount.fix_amount
-                    elif amount.type_installement=='percentage':
-                        instalment_am+=amount.amount_paid
+                    # elif amount.type_installement=='percentage':
+                    #     instalment_am+=amount.amount_paid
                 rec.total_instalment_am=instalment_am
             rec.difference_instalment=rec.total_policy_am_after_vat-rec.total_instalment_am
 

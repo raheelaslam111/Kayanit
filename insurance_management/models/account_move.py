@@ -153,6 +153,11 @@ class AccountMove(models.Model):
 
         }))
 
+        move_t = ''
+        if self.move_type=='out_invoice':
+            move_t='in_invoice'
+        elif self.move_type=='out_refund':
+            move_t='in_refund'
 
         account_move = self.env['account.move'].create({
             'partner_id': int(govt_partnr),
@@ -161,7 +166,7 @@ class AccountMove(models.Model):
             'invoice_type': 'commission_inv',
             'journal_id': int(journal_id),
             # 'invoice_payment_term_id': self.payment_term_id.id,
-            'move_type': 'in_invoice',
+            'move_type': move_t,
             'date':due_date,
             'policy_no': self.policy_no,
             'invoice_date_due': due_date,
