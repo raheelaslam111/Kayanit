@@ -7,8 +7,8 @@ class AccountMove(models.Model):
 
     insurance_company_id = fields.Many2one('insurance.company', "Insurance Company")
     endorsment_ref = fields.Char("Endorsement Ref")
-    commission_count = fields.Integer("commission",compute='_count_commission',store=1)
-    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count',store=1)
+    commission_count = fields.Integer("commission",)
+    govt_fee_count = fields.Integer("Govt. Fee",)
     invoice_ref = fields.Many2one('account.move',domain="[('invoice_type','in',('policy','endors')),('state','=','posted')]", string="Invoice Ref")
     govt_boolean = fields.Boolean("Govt Bill")
     commission_boolean = fields.Boolean('Commission Invoice')
@@ -135,11 +135,16 @@ class AccountMove(models.Model):
 
         })
         self.commission_boolean = True
+        for rec in self:
+            account_move = self.env['account.move'].search([('invoice_ref','=',self.id)])
+            if account_move:
+                rec.commission_count=len(account_move)
 
         account_move.invoice_line_ids = invoice_lst
     def create_govt_fee(self,due_date,amount):
         invoice_lst = []
         self.govt_boolean = True
+
         params = self.env['ir.config_parameter'].sudo()
         govt_partnr = params.get_param('insurance_management.govt_partner',)
         print(govt_partnr)
@@ -181,7 +186,10 @@ class AccountMove(models.Model):
 
         })
         account_move.invoice_line_ids = invoice_lst
-
+        for rec in self:
+            account_move = self.env['account.move'].search([('invoice_ref','=',self.id)])
+            if account_move:
+                rec.govt_fee_count=len(account_move)
 
     def action_open_invoice(self):
         return {
