@@ -7,8 +7,8 @@ class AccountMove(models.Model):
 
     insurance_company_id = fields.Many2one('insurance.company', "Insurance Company")
     endorsment_ref = fields.Char("Endorsement Ref")
-    commission_count = fields.Integer("commission",compute='_count_commission')
-    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count')
+    commission_count = fields.Integer("commission",compute='_count_commission',store=1)
+    govt_fee_count = fields.Integer("Govt. Fee", compute='govt_count',store=1)
     invoice_ref = fields.Many2one('account.move',domain="[('invoice_type','in',('policy','endors')),('state','=','posted')]", string="Invoice Ref")
     govt_boolean = fields.Boolean("Govt Bill")
     commission_boolean = fields.Boolean('Commission Invoice')
