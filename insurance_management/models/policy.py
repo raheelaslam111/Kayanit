@@ -40,10 +40,11 @@ class Policy(models.Model):
         result = []
         for policy in self:
             if policy.policy_type=='endors':
-
-                result.append((policy.id, policy.endorsment_ref))
+                endor= policy.endorsment_ref if policy.endorsment_ref else 'None'
+                result.append((policy.id, endor))
             elif policy.policy_type=='policy':
-                result.append((policy.id, policy.policy_no))
+                pol = policy.policy_no if policy.policy_no else 'None'
+                result.append((policy.id, pol))
         return result
 
 
