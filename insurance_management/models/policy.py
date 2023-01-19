@@ -6,6 +6,7 @@ class Policy(models.Model):
 
     insurance_company_id = fields.Many2one('insurance.company', "Insurance Company",required=1)
     insurance_partner = fields.Many2one('res.partner','Insurance Partner')
+    endorsement_request_id = fields.Many2one('endorsement.request',string='Endorsement Request')
 
     @api.onchange('insurance_company_id')
     def onchange_insurance_company_id(self):

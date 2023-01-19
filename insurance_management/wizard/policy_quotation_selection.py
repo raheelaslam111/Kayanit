@@ -208,7 +208,7 @@ class PolicySelectionQuotation(models.TransientModel):
         active_ids = context.get('active_ids')
         client_branch = self.env['client.branch'].browse(active_ids)
         if client_branch:
-            client_branch.state='policy_issuance'
+            client_branch.state='validate'
         # if self.medical_visibility_check == True:
         #     self.insurance_quotation_id.select = True
         #     self.insurance_quotation_id.state = "selected"

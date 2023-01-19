@@ -134,14 +134,14 @@
                     <button name="send_for_insurance_quotation" type="object" string="Send To Vendor" class="oe_highlight" states="review,sent_to_insurance"/>
                     <button name="already_received_quotation" type="object" string="Already Received Quotation" class="oe_highlight" states="review"/>
                     <button name="send_to_customer" type="object" string="Send to Customer" class="oe_highlight" states="sent_to_insurance"/>
-                    <button name="validate" type="object" string="Validate" class="oe_highlight" states="policy_issuance" attrs="{'invisible': ['|',('is_selected_quotation', '=', False)]}"/>
+                    <button name="validate" type="object" string="Validate" class="oe_highlight" states="vendor_finishing" attrs="{'invisible': ['|',('is_selected_quotation', '=', False)]}"/>
                     <button name="reset_to_draft" type="object" string="Reset Back" class="oe_highlight" states="validate"/>
                     <button name="open_select_quotation_wizard" type="object" string="Select Quotation" class="oe_highlight" states="sent_to_customer"/>
                     <button name="vendor_finishing" type="object" string="Vendor Finishing" class="oe_highlight" states="sent_to_customer"/>
-                    <button name="cancel" type="object" string="cancel" class="oe_highlight"/>
+                    <button name="cancel" type="object" string="cancel" class="oe_highlight" attrs="{'invisible':[('state','in',['validate','cancel'])]}"/>
                     <button name="action_create_policy" type="object" string="Create Policy" class="oe_highlight" attrs="{'invisible':['|',('state','!=','validate'),('policy_id','!=',False)]}" />
 
-                    <field name="state" widget="statusbar" clickable="1" statusbar_visible="gather_info,review,sent_to_insurance,sent_to_customer,policy_issuance,validate"/>
+                    <field name="state" widget="statusbar" clickable="1" statusbar_visible="gather_info,review,sent_to_insurance,sent_to_customer,vendor_finishing,validate"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">

@@ -20,7 +20,10 @@
     <menuitem id="ins_insurance_quotation_vehicle" name="Vehicle Quotation" parent="ins_insurance_quotation_vehicle_label" sequence="1" action="action_vehicle_quotation"/>
     <menuitem id="ins_insurance_quotation_vehicle_line" name="Vehicle Quotation Line" parent="ins_insurance_quotation_vehicle_label" sequence="2" action="action_vehicle_quotation_line"/>
 
-    <menuitem id="ins_insurance_company" name="Insurance Company" parent="menu_insurance_management" sequence="5" action="action_insurance_company"/>
+    <menuitem id="ins_endorsement_request_menu" name="Endorsement" parent="menu_insurance_management" sequence="5"/>
+    <menuitem id="ins_endorsement_request_sub_menu" name="Endorsement Request" parent="ins_endorsement_request_menu" sequence="1" action="action_endorsement_request"/>
+
+    <menuitem id="ins_insurance_company" name="Insurance Company" parent="menu_insurance_management" sequence="6" action="action_insurance_company"/>
 
 
     <menuitem id="ins_configuration" name="Configuration" parent="menu_insurance_management" sequence="100"/>

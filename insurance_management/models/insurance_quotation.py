@@ -269,7 +269,8 @@ class quotation_line(models.Model):
     insurance_quotation_id = fields.Many2one('insurance.quotation',string='Insurance Quotation')
     insurance_company_id = fields.Many2one(related='insurance_quotation_id.insurance_company_id', string='Company',
                                            store=True)
-    client_branch_id = fields.Many2one(related='insurance_quotation_id.client_branch_id', string='Client Branch')
+    document_no = fields.Char(related='insurance_quotation_id.document_no', string='Document No', store=True)
+    client_branch_id = fields.Many2one(related='insurance_quotation_id.client_branch_id', string='Customer')
     related_client_ids = fields.Many2many('client.basic.info',string='Client IDS',compute='_get_related_clients')
     client_id = fields.Many2one('client.basic.info',string='Client ID')
     vat = fields.Float(string='VAT',default=15)
@@ -602,6 +603,7 @@ class vehicle_quotation_line(models.Model):
 
     vehicle_quotation_id = fields.Many2one('vehicle.quotation',string='Vehicle Quotation')
     insurance_company_id = fields.Many2one(related='vehicle_quotation_id.insurance_company_id', string='Company', store=True)
+    document_no = fields.Char(related='vehicle_quotation_id.document_no', string='Document No', store=True)
     client_branch_id = fields.Many2one(related='vehicle_quotation_id.client_branch_id', string='Client Branch')
     related_vehicle_client_ids = fields.Many2many('client.vehicle.info',string='Client IDS',compute='_get_related_vehicle_clients')
     vehicle_client_id = fields.Many2one('client.vehicle.info',string='Client ID')

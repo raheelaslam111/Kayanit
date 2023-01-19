@@ -82,7 +82,7 @@ class client_branch(models.Model):
     state = fields.Selection([('gather_info','Gather Info'),
                               ('review','Review'),
                               ('sent_to_insurance','Sent to Vendor'),
-                              ('sent_to_customer','Sent to Customer'),('policy_issuance','Policy Issuance'),('validate','Validate'),
+                              ('sent_to_customer','Sent to Customer'),('vendor_finishing','Vendor Finishing'),('validate','Validate'),
                               ('cancel','Cancel')],string='state',default='gather_info', tracking=True)
     import_client_file = fields.Binary(string='Upload Clients Data (.xls')
     # template_client_info_file = fields.Binary(string='Client Info Template',default=_default_get_client_ifo_temp)
@@ -113,7 +113,7 @@ class client_branch(models.Model):
     # crm_lead_id = fields.Many2one('crm.lead',string='CRM Lead',copy=False)
 
     def vendor_finishing(self):
-        self.state = 'policy_issuance'
+        self.state = 'vendor_finishing'
 
     def unlink(self):
         for rec in self:

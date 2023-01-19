@@ -17,7 +17,7 @@ class Policy(models.Model):
 
 
     partner_id = fields.Many2one('res.partner',string='Customer')
-    policy_no = fields.Char("Policy No",)
+    policy_no = fields.Char("Policy No")
     branch_id = fields.Many2one('insurance.branch',"Branch Name")
     start_date = fields.Date('Start Date')
     expiry_date = fields.Date('Expiry Date')
