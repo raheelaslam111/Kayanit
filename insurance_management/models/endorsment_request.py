@@ -22,11 +22,11 @@ class endorsement_request(models.Model):
 
     document_no = fields.Char(string='Document No')
     policy_type = fields.Selection([('endors', 'Endorsement')], default='endors',
-                                   string="Transaction Type", tracking=True,required=True)
+                                   string="Transaction Type", tracking=True)
     partner_id = fields.Many2one('res.partner', string='Customer')
     insurance_company_id = fields.Many2one('insurance.company',string='Insurance Company')
     policy_no = fields.Char("Policy No")
-    insurance_type_id = fields.Many2one('insurance.type', string='Insurance Type', required='1')
+    insurance_type_id = fields.Many2one('insurance.type', string='Insurance Type')
     insurance_sub_type_id = fields.Many2one('insurance.sub.type', string='Insurance Sub Type',
                                             domain="[('insurance_type_id','=',insurance_type_id)]")
     prev_policy = fields.Many2one('insurance.policy', string="Policy", required='1')
