@@ -74,15 +74,15 @@
                     </div>
                     <group>
                         <group>
-                            <field name="policy_type" readonly="1"/>
+                            <field name="policy_type" attrs="{'readonly':[('state','=','validate')]}"/>
                             <field name="prev_policy" attrs="{'readonly':[('state','=','validate')]}"/>
-                            <field name="partner_id" readonly="1"/>
-                            <field name="insurance_company_id" readonly="1"/>
+                            <field name="partner_id" attrs="{'readonly':[('state','=','validate')]}"/>
+                            <field name="insurance_company_id" attrs="{'readonly':[('state','=','validate')]}"/>
                         </group>
                          <group>
-                            <field name="policy_no" readonly="1"/>
-                            <field name="insurance_type_id" readonly="1"/>
-                            <field name="insurance_sub_type_id" readonly="1"/>
+                            <field name="policy_no" attrs="{'readonly':[('state','=','validate')]}"/>
+                            <field name="insurance_type_id" attrs="{'readonly':[('state','=','validate')]}"/>
+                            <field name="insurance_sub_type_id" attrs="{'readonly':[('state','=','validate')]}"/>
                             <field name="medical_visibility_check" invisible="1"/>
                             <field name="vehicle_visibility_check" invisible="1"/>
                             <field name="endorsement_policy_id" invisible="1"/>
