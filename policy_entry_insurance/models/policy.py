@@ -23,7 +23,7 @@ class Policy(models.Model):
     expiry_date = fields.Date('Expiry Date')
     issuance_date = fields.Date('Issuance Date')
     policy_id_i = fields.Char('policy ID',readonly=1)
-    prev_policy = fields.Many2one('insurance.policy',"Policy")
+    prev_policy = fields.Many2one('insurance.policy',"Internal Ref")
     insurance_company_id = fields.Char('Insurance Company')
     business_class = fields.Many2one('business.class.config','Business Class')
 
